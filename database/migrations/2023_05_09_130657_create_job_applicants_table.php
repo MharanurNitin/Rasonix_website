@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('email')->nullable(false)->change();
             $table->string('address');
             $table->bigInteger('phone no')->nullable();
+            $table->string('resume');
+            $table->string('profile_image')->nullable();
             $table->$table->$table->timestamps();
         });
     }
