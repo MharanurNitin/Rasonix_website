@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('job_applicants', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('job_title');
             $table->bigInteger('career_id')->unsigned();
             $table->foreign('career_id')->references('id')->on('careers')->onDelete('cascade');
             $table->string('phone no')->unique();
             $table->string('email')->unique();
-            $table->string('address');
+            $table->string('address')->nullable()->default(null);
+            $table->enum('gender', ['male', 'female', 'other']);
             $table->string('resume');
             $table->string('profile_image')->nullable()->default(null);
             $table->timestamps();

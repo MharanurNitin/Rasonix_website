@@ -19,6 +19,8 @@ return new class extends Migration
             $table->longText('description');
             $table->string('image')->nullable()->default(null);
             $table->string('thumbnail_image')->nullable()->default(null);
+            $table->enum('status', ['visible', 'hidden'])->default('hidden');
+            $table->text('tags')->nullable()->default(null);
             $table->string('meta_title');
             $table->text('meta_description')->nullable()->default(null);
             $table->text('meta_keyword')->nullable()->default(null);

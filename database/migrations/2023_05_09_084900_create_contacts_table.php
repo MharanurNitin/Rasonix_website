@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('phone_number');
             $table->string('company_name')->nullable()->default(null);
             $table->longText('message')->nullable()->default(null);
-            $table->enum('block_status', ['blocked_email', 'blocked_phone', 'unblocked'])->default('unblocked');
             $table->boolean('replied')->default(false);
             $table->longText('reply')->nullable()->default(null);
             $table->timestamps();
