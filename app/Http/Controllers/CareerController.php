@@ -8,10 +8,9 @@ use Illuminate\Http\Request;
 
 class CareerController extends Controller
 {
-    public function index()
+    public function index($id)
     {
-        return Career::find(1)->applicants;
-
-        // return $jobs;
+        return Career::find($id)->applicants;
+        // return Career::all();
     }
 }
