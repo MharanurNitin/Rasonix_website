@@ -14,15 +14,12 @@ return new class extends Migration
         Schema::create('careers', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->longText('description');
-            $table->string('category'); // is this enum field 
-            $table->string('sub_category'); //check enum field
-            $table->string('vacancies');
-            $table->string('image')->nullable()->default(null);
-            $table->string('thumbnail_image')->nullable()->default(null);
-
+            $table->string('description');
+            $table->string('category');
+            $table->string('sub_category');
+            $table->string('image')->nullable();
             $table->timestamps();
-            // 
+            
         });
     }
 
