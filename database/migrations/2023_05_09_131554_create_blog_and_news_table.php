@@ -17,10 +17,11 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug');
             $table->longText('description');
-            $table->string('image')->nullable();
+            $table->string('image')->nullable()->default(null);
+            $table->string('thumbnail_image')->nullable()->default(null);
             $table->string('meta_title');
-            $table->mediumText('meta_description')->nullable();
-            $table->mediumText('meta_keyword')->nullable();
+            $table->text('meta_description')->nullable()->default(null);
+            $table->text('meta_keyword')->nullable()->default(null);
             $table->timestamps();
         });
     }

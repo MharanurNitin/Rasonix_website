@@ -15,12 +15,14 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('job_title');
-            $table->string('email')->nullable(false)->change();
+            $table->bigInteger('career_id')->unsigned();
+            $table->foreign('career_id')->references('id')->on('careers')->onDelete('cascade');
+            $table->string('phone no')->unique();
+            $table->string('email')->unique();
             $table->string('address');
-            $table->bigInteger('phone no')->nullable();
             $table->string('resume');
-            $table->string('profile_image')->nullable();
-            $table->$table->$table->timestamps();
+            $table->string('profile_image')->nullable()->default(null);
+            $table->timestamps();
         });
     }
 
