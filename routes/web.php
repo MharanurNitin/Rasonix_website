@@ -15,13 +15,13 @@ use App\Http\Controllers\CareerController;
 |
 */
 
-Route::get('/', function () {
-    return view('components.master');
-});
+// public Routes
 Route::get('/applicants/{id}', [CareerController::class, 'index'])->name('applicants');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
-Auth::routes();
+// Admin Route
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function (){
 Route::get('/dashboard',[App\Http\Controllers\Admin\DashboardController::class,'index']);
 });
+
+
