@@ -18,10 +18,14 @@ return new class extends Migration
             $table->foreign('career_id')->references('id')->on('careers')->onDelete('cascade');
             $table->string('phone no')->unique();
             $table->string('email')->unique();
+<<<<<<< HEAD
             $table->string('address')->nullable()->default(null);
             $table->enum('gender', ['male', 'female', 'other']);
+=======
+           // $table->string('address');
+>>>>>>> aef8cf5 (added admin dashboard)
             $table->string('resume');
-            $table->string('profile_image')->nullable()->default(null);
+            //$table->string('profile_image')->nullable()->default(null);
             $table->timestamps();
         });
     }

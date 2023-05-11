@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\CareerController;
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CareerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('components.master');
 });
 Route::get('/applicants/{id}', [CareerController::class, 'index'])->name('applicants');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function (){
+Route::get('/dashboard',[App\Http\Controllers\Admin\DashboardController::class,'index']);
+});

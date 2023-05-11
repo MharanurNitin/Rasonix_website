@@ -16,10 +16,14 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('password');
+            $table->string('phone_no')->unique();
+            $table->string('password')->nullable()->dafault(null);
+            $table->string('remember_token')->nullable()->dafault(null);
             $table->enum('role', ['guest', 'user', 'editor', 'admin', 'super_admin'])->default('guest');
             $table->string('profile_image')->nullable()->default(null);
             $table->timestamp('joining_date')->nullable()->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->boolean('block_status')->default(false);
+            //$table->timestamp('deleted_at')->nullable()->default(null);
             $table->timestamps();
         });
     }

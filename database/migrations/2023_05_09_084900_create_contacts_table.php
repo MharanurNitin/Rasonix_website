@@ -19,7 +19,12 @@ return new class extends Migration
             $table->string('phone_number');
             $table->string('company_name')->nullable()->default(null);
             $table->longText('message')->nullable()->default(null);
+<<<<<<< HEAD
             $table->boolean('replied')->default(false);
+=======
+            $table->enum('block_status', ['blocked_email', 'blocked_phone', 'unblocked'])->default('unblocked');
+            $table->boolean('replied')->default(false); 
+>>>>>>> aef8cf5 (added admin dashboard)
             $table->longText('reply')->nullable()->default(null);
             $table->timestamps();
         });

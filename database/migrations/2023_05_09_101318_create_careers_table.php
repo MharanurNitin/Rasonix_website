@@ -14,12 +14,16 @@ return new class extends Migration
         Schema::create('careers', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('description');
-            $table->string('category');
-            $table->string('sub_category');
-            $table->string('image')->nullable();
+            $table->text('description')->nullable()->default(null);
+            // $table->string('category'); add forgian key in this
+            $table->bigInteger('category_id')->unsigned();
+            $table->foreign('category_id')->references('id')->on('categories');
+            // $table->string('sub_category');
+            $table->string('document')->nullable()->default(null);
+            $table->bigInteger('updated_by')->unsigned();
+            $table->foreign('updated_by')->references('id')->on('users');
             $table->timestamps();
-            
+
         });
     }
 
