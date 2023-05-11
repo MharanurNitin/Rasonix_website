@@ -25,15 +25,16 @@
 
 <body>
     @include('inc.admin-navbar')
-    <div id="layoutSidenav">
+    {{-- <div id="layoutSidenav"> --}}
     @include('inc.admin-sidebar')
     <div id="layoutSidenav_content">
         <main>
             @yield('content')
         </main>
+
         @include('inc.admin-footer')
     </div>
-    </div>
+    {{-- </div> --}}
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/scripts.js') }}"></script>
 
