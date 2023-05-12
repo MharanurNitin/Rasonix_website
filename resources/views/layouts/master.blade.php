@@ -9,15 +9,19 @@
     <script src="{{url('assets/js/jquery.min.js')}}"></script>
     <script src="{{url('assets/js/flowbite.js')}}"></script>
     <script src="{{url('../assets/js/tailwind.js')}}"></script>
+    {{-- montserrat font --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
     <title>@yield('title')</title>
 </head>
 
 <body>
     {{-- navbar file --}}
-    @include('layouts.includes.header');
+    @include('layouts.includes.header')
     @yield('content');
 {{-- footer file --}}
-    @include('layouts.includes.footer');
+    @include('layouts.includes.footer')
 </body>
 
 </html>
