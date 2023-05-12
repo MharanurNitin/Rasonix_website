@@ -22,7 +22,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
 // Register Route
 Route::get('/register', [RegisterController::class, 'index']);
-Route::post('register', [RegisterController::class, 'store']);
+Route::post('register', [RegisterController::class, 'store'])->name('register');
 // Login Route
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('login', [RegisterController::class, 'store']);

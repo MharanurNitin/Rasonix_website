@@ -16,13 +16,14 @@ return new class extends Migration
             $table->string('title');
             $table->text('description')->nullable()->default(null);
             // $table->string('category'); add forgian key in this
-            $table->bigInteger('category_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->bigInteger('categories_id')->unsigned();
+            $table->foreign('categories_id')->references('id')->on('categories');
             // $table->string('sub_category');
             $table->string('document')->nullable()->default(null);
             $table->bigInteger('updated_by')->unsigned();
             $table->foreign('updated_by')->references('id')->on('users');
             $table->timestamps();
+
 
         });
     }
