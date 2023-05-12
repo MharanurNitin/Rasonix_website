@@ -25,13 +25,13 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
 // Register Route
 Route::get('/register', [RegisterController::class, 'index']);
-Route::post('register', [RegisterController::class, 'store'])->name('register');
+Route::post('/register', [RegisterController::class, 'store'])->name('register');
 // Login Route
 Route::get('/login', [UserController::class, 'index'])->name('login');
 
-Route::post('login', [UserController::class, 'login']);
-Route::get('admin/dashboard', [DashboardController::class, 'index']);
-Route::get('category', [App\Http\Controllers\Admin\CategoryController::class, 'index']);
-Route::post('logout', [LogoutController::class, 'logout'])->name('logout');
+Route::post('/login', [UserController::class, 'login']);
+Route::get('/admin/dashboard', [DashboardController::class, 'index']);
+Route::get('/category', [App\Http\Controllers\Admin\CategoryController::class, 'index']);
+Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 
