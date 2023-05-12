@@ -10,8 +10,8 @@ class LoginController extends Controller
     {
      return view('form.login');
     }
-    public function store()
+    public function login(Request $request)
     {
-
+        return $request->input();
     }
 }

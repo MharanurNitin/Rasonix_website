@@ -25,10 +25,7 @@ Route::get('/register', [RegisterController::class, 'index']);
 Route::post('register', [RegisterController::class, 'store'])->name('register');
 // Login Route
 Route::get('/login', [LoginController::class, 'index']);
-Route::post('login', [RegisterController::class, 'store']);
-
-// career Route
-Route::get('/career', [CareerController::class, 'index']);
+Route::post('login', [LoginController::class, 'login']);
 // Admin Route
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index']);
