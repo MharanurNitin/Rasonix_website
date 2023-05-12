@@ -24,8 +24,8 @@
 </head>
 
 <body>
-    @include('admin_layouts.includes.admin-navbar')
-    {{-- <div id="layoutSidenav"> --}}
+    {{-- @include('admin_layouts.includes.admin-navbar')
+    <div id="layoutSidenav">
     @include('admin_layouts.includes.admin-sidebar')
     <div id="layoutSidenav_content">
         <main>
@@ -34,7 +34,22 @@
 
         @include('admin_layouts.includes.admin-footer')
     </div>
-    {{-- </div> --}}
+    </div> --}}
+
+
+    @include('admin_layouts.includes.admin-navbar')
+    <div id="layoutSidenav">
+        @include('admin_layouts.includes.admin-sidebar')
+        <div id="layoutSidenav_content">
+            <main>
+                @yield('content')
+            </main>
+            @include('admin_layouts.includes.admin-footer')
+        </div>
+    </div>
+
+
+
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/scripts.js') }}"></script>
 

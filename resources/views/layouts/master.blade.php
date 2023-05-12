@@ -19,13 +19,8 @@
 <body>
     {{-- navbar file --}}
     @include('layouts.includes.header')
-<<<<<<< HEAD
-    @yield('content');
-{{-- footer file --}}
-=======
     @yield('content')
-    {{-- footer file --}}
->>>>>>> 037137f6e10450663660fe091b834877bb0f120f
+{{-- footer file --}}
     @include('layouts.includes.footer')
 </body>
 

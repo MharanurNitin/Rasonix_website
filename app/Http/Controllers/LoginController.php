@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
@@ -12,6 +13,15 @@ class LoginController extends Controller
     }
     public function login(Request $request)
     {
-        return $request->input();
+        $user= User::where(['email'=>$request->email])->first();
+        if(!$user($request->password,$user->password))
+        {
+            return 'password not matched';
+        }
+        else
+        {
+            $request->session()->put('user',$user);
+            return redirect('admin/dashboard');
+        }
     }
 }
