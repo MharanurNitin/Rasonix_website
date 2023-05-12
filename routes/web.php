@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CareerController;
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\Admin\DashboardController;
 
@@ -31,6 +32,6 @@ Route::get('/login', [UserController::class, 'index'])->name('login');
 Route::post('login', [UserController::class, 'login']);
 Route::get('admin/dashboard', [DashboardController::class, 'index']);
 Route::get('category', [App\Http\Controllers\Admin\CategoryController::class, 'index']);
-
+Route::post('logout', [LogoutController::class, 'logout'])->name('logout');
 
 

@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title')</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -24,27 +24,23 @@
 </head>
 
 <body>
-    {{-- @include('admin_layouts.includes.admin-navbar')
-    <div id="layoutSidenav">
-    @include('admin_layouts.includes.admin-sidebar')
-    <div id="layoutSidenav_content">
-        <main>
-            @yield('content')
-        </main>
 
-        @include('admin_layouts.includes.admin-footer')
-    </div>
-    </div> --}}
 
 
     @include('admin_layouts.includes.admin-navbar')
+
     <div id="layoutSidenav">
+
         @include('admin_layouts.includes.admin-sidebar')
+
         <div id="layoutSidenav_content">
+
             <main>
                 @yield('content')
             </main>
+
             @include('admin_layouts.includes.admin-footer')
+
         </div>
     </div>
 
