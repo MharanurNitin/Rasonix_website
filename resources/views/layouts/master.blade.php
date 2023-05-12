@@ -14,10 +14,10 @@
 
 <body>
     {{-- navbar file --}}
-    @include('layouts.includes.header')
-    @yield('content')
+    @include('layouts.includes.header');
+    @yield('content');
 {{-- footer file --}}
-    @include('layouts.includes.footer')
+    @include('layouts.includes.footer');
 </body>
 
 </html>
