@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CareerController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,9 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 // Register Route
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('register', [RegisterController::class, 'store']);
-
+// Login Route
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('login', [RegisterController::class, 'store']);
 // Admin Route
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index']);
