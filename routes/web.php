@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CareerController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,5 +33,7 @@ Route::post('login', [UserController::class, 'login']);
 Route::get('admin/dashboard', [DashboardController::class, 'index']);
 Route::get('category', [App\Http\Controllers\Admin\CategoryController::class, 'index']);
 
-
-
+Route::get('contact', function () {
+    return view('form.contact');
+});
+Route::post("/contact", [ContactController::class, 'contact']);

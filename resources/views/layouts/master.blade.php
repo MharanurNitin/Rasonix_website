@@ -16,7 +16,7 @@
     <title>@yield('title')</title>
 </head>
 
-<body>
+<body class='bg-slate-400'>
     {{-- navbar file --}}
     @include('layouts.includes.header')
     @yield('content')
