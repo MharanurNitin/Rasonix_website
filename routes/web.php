@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CareerController;
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\ContactController;
@@ -25,15 +26,12 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
 // Register Route
 Route::get('/register', [RegisterController::class, 'index']);
-Route::post('register', [RegisterController::class, 'store'])->name('register');
+Route::post('/register', [RegisterController::class, 'store'])->name('register');
 // Login Route
 Route::get('/login', [UserController::class, 'index'])->name('login');
 
-Route::post('login', [UserController::class, 'login']);
-Route::get('admin/dashboard', [DashboardController::class, 'index']);
-Route::get('category', [App\Http\Controllers\Admin\CategoryController::class, 'index']);
 
-Route::get('contact', function () {
-    return view('form.contact');
-});
-Route::post("/contact", [ContactController::class, 'contact']);
+Route::post('/login', [UserController::class, 'login']);
+Route::get('/admin/dashboard', [DashboardController::class, 'index']);
+Route::get('/category', [App\Http\Controllers\Admin\CategoryController::class, 'index']);
+Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
