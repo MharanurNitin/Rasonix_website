@@ -12,10 +12,16 @@ class CareerController extends Controller
     {
         return view('career');
     }
-
+    public function findJob($id)
+    {
+        return Career::find($id);
+    }
+    public function allJobs()
+    {
+        return Career::all();
+    }
     public function getApplicant($id)
     {
         return Career::find($id)->applicants;
-        // return Career::all();
     }
 }

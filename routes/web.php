@@ -21,7 +21,9 @@ use App\Http\Controllers\ContactController;
 */
 
 // public Routes
-Route::get('/applicants/{id}', [CareerController::class, 'index'])->name('applicants');
+Route::get('job/{id}/applicants', [CareerController::class, 'getApplicant']); //it gives all applicants of perticular job id
+Route::get('/jobs', [CareerController::class, 'allJobs']); //gives all listed jobs
+Route::get('/job/{id}', [CareerController::class, 'findJob']); //gives perticular job information
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
 // Register Route
@@ -30,8 +32,9 @@ Route::post('/register', [RegisterController::class, 'store'])->name('register')
 // Login Route
 Route::get('/login', [UserController::class, 'index'])->name('login');
 
-
+// Route::prefix('/Admin')->middleware()->group(['isAdmin'], function () {
 Route::post('/login', [UserController::class, 'login']);
 Route::get('/admin/dashboard', [DashboardController::class, 'index']);
 Route::get('/category', [App\Http\Controllers\Admin\CategoryController::class, 'index']);
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+// });

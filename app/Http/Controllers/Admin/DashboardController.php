@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -11,32 +12,32 @@ use App\Http\Middleware\AdminMiddleware;
 class DashboardController extends Controller
 {
     // public function __construct(){ $this->middleware(AdminMiddleware::class);}
-    public function index (Request $request)
+    public function index(Request $request)
     {
-      return $user = User::where('email','=',$request->email)->first();
+        //   return $user = User::where('email','=',$request->email)->first();
 
-        if($user)
-        {
-        //    $user->password '=' Hash::check($request->password)
+        //     if($user)
+        //     {
+        //     //    $user->password '=' Hash::check($request->password)
 
-        if (Hash::check($request->get('password'), $user->password)) {
-         if($user->role === 'admin' )
-         {
+        //     if (Hash::check($request->get('password'), $user->password)) {
+        //      if($user->role === 'admin' )
+        //      {
 
-             return view('admin_views.admin.dashboard');
-         }
-         else
-         {
-            return redirect()->back();
-         }
-        } else {
-            return redirect()->back()->withErrors(['error' => ['Invalid Password']]);
-        }
+        return view('admin_views.admin.dashboard');
+        //      }
+        //      else
+        //      {
+        //         return redirect()->back();
+        //      }
+        //     } else {
+        //         return redirect()->back()->withErrors(['error' => ['Invalid Password']]);
+        //     }
 
-        }
-        else
-        {
-            return redirect()->back()->withErrors(['error' => ['Account Does Not Exist']]);
-        }
+        //     }
+        //     else
+        //     {
+        //         return redirect()->back()->withErrors(['error' => ['Account Does Not Exist']]);
+        //     }
     }
 }
