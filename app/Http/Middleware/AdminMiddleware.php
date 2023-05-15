@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
+use App\Http\Controllers\Admin\CategoryController;
 
 class AdminMiddleware
 {
@@ -24,5 +25,6 @@ class AdminMiddleware
             }
         }
         return redirect('/');
+       
     }
 }

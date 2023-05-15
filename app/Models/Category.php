@@ -14,13 +14,13 @@ class Category extends Model
     protected $fillable = [
 
         'name',
-        'slug',
-        'description',
-        'image',
-        'meta_title',
-        'meta_description',
-        'meta_keyword',
-        'show_status'
+        // 'slug',
+        // 'description',
+        // 'image',
+        // 'meta_title',
+        // 'meta_description',
+        // 'meta_keyword',
+        // 'show_status'
     ];
 
     public function subCategory()
