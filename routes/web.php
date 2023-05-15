@@ -35,6 +35,11 @@ Route::middleware(['guard'])->group(function () {
         Route::get('create-category', [CategoryController::class, 'create'])->name('create-category');
         Route::post('create-category', [CategoryController::class, 'store']);
         Route::get('view-category', [CategoryController::class, 'view_category'])->name('view-category');
+        Route::get('add-jobs', [CareerController::class, 'add_jobs'])->name('add_jobs');
+        Route::post('add-jobs', [CareerController::class, 'store_jobs'])->name('add_jobs');
+        Route::get('view-jobs', [CareerController::class, 'view_jobs'])->name('view_jobs');
+        Route::get('edit-jobs/{id}', [CareerController::class, 'edit_jobs'])->name('edit_jobs');
+        Route::get('delete-jobs/{id}', [CareerController::class, 'destroy'])->name('delete_jobs');
     });
 });
 Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');

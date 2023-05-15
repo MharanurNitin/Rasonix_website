@@ -32,8 +32,8 @@
                   {{-- Navigation for Add Jobs And View Available Jobs --}}
                     <div class="nav-link collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="{{url('admin/dashboard/create')}}">Add jobs</a>
-                            <a class="nav-link" href="{{url('admin/dashboard/view-category')}}">View jobs</a>
+                            <a class="nav-link" href="{{url('admin/add-jobs')}}">Add jobs</a>
+                            <a class="nav-link" href="{{url('admin/view-jobs')}}">View jobs</a>
                         </nav>
                     </div>
 
