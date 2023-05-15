@@ -5,7 +5,7 @@
             <div class="sb-sidenav-menu">
                 <div class="nav">
                     <div class="sb-sidenav-menu-heading">Core</div>
-                    <a class="nav-link" href="index.html">
+                    <a class="nav-link" href="{{url('admin/dashboard')}}">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Dashboard
                     </a>
@@ -15,12 +15,29 @@
                         Layouts
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
+                  {{-- Navigation for Add Category And View Available Category --}}
                     <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="layout-static.html">Add Category</a>
-                            <a class="nav-link" href="layout-sidenav-light.html">View Category</a>
+                            <a class="nav-link" href="{{url('admin/dashboard/create')}}">Add Category</a>
+                            <a class="nav-link" href="{{url('admin/dashboard/view-category')}}">View Category</a>
                         </nav>
                     </div>
+
+
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                        Jobs
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                  {{-- Navigation for Add Jobs And View Available Jobs --}}
+                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="{{url('admin/dashboard/create')}}">Add jobs</a>
+                            <a class="nav-link" href="{{url('admin/dashboard/view-category')}}">View jobs</a>
+                        </nav>
+                    </div>
+
+
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                         <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                         Pages

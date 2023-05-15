@@ -37,4 +37,7 @@ Route::post('/login', [UserController::class, 'login']);
 Route::get('/admin/dashboard', [DashboardController::class, 'index']);
 Route::get('/category', [App\Http\Controllers\Admin\CategoryController::class, 'index']);
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+Route::get('/admin/dashboard/create', [DashboardController::class, 'create'])->name('create');
+Route::get('/admin/dashboard/view-category', [DashboardController::class, 'view'])->name('view-category');
+Route::post('/admin/dashboard/view-category', [DashboardController::class, 'view'])->name('view-category');
 // });
