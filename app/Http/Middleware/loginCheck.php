@@ -3,12 +3,10 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class AdminMiddleware
+class loginCheck
 {
     /**
      * Handle an incoming request.
@@ -17,12 +15,9 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (session()->has('role')) {
-            if (session('role') == 'admin') {
-
-                return $next($request);
-            }
+        if (session()->has('name')) {
+            return redirect()->back();
         }
-        return redirect('/');
+        return $next($request);
     }
 }

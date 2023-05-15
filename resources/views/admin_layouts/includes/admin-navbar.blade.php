@@ -18,10 +18,7 @@
                 <li><a class="dropdown-item" href="#!">Settings</a></li>
                 <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                 <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-                    <form action="{{route('logout')}}" id="logout-form" method="POST" class="d-none">
-                    @csrf
-                    </form>
+                <li><a href='{{url('/logout')}}'>logout</a></li>
                 </li>
             </ul>
         </li>

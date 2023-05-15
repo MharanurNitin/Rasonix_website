@@ -21,20 +21,27 @@ use App\Http\Controllers\ContactController;
 */
 
 // public Routes
-Route::get('job/{id}/applicants', [CareerController::class, 'getApplicant']); //it gives all applicants of perticular job id
-Route::get('/jobs', [CareerController::class, 'allJobs']); //gives all listed jobs
-Route::get('/job/{id}', [CareerController::class, 'findJob']); //gives perticular job information
+
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
 // Register Route
-Route::get('/register', [RegisterController::class, 'index']);
-Route::post('/register', [RegisterController::class, 'store'])->name('register');
-// Login Route
-Route::get('/login', [UserController::class, 'index'])->name('login');
+Route::middleware('is_login')->group(function () {
 
-// Route::prefix('/Admin')->middleware()->group(['isAdmin'], function () {
-Route::post('/login', [UserController::class, 'login']);
-Route::get('/admin/dashboard', [DashboardController::class, 'index']);
-Route::get('/category', [App\Http\Controllers\Admin\CategoryController::class, 'index']);
-Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+    Route::get('/register', [RegisterController::class, 'index']);
+    Route::post('/register', [RegisterController::class, 'store'])->name('register');
+    // Login Route
+    Route::get('/login', [UserController::class, 'index'])->name('login');
+    Route::post('/login', [UserController::class, 'login']);
+});
+Route::middleware(['guard'])->group(function () {
+    Route::prefix('admin')->group(function () {
+        Route::get('/dashboard', [DashboardController::class, 'index']);
+        Route::get('job/{id}/applicants', [CareerController::class, 'getApplicant']); //it gives all applicants of perticular job id
+        Route::get('/jobs', [CareerController::class, 'allJobs']); //gives all listed jobs
+        Route::get('/job/{id}', [CareerController::class, 'findJob'])->where('id', '[0-9]+');; //gives perticular job information
+        Route::get('/category', [App\Http\Controllers\Admin\CategoryController::class, 'index']);
+        Route::get('/users', [UserController::class, 'allUsers']);
+    });
+});
+Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 // });
