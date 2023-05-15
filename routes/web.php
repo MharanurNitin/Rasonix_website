@@ -5,20 +5,11 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CareerController;
 use App\Http\Controllers\LogoutController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\DashboardController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 // public Routes
 
@@ -36,15 +27,15 @@ Route::middleware('is_login')->group(function () {
 Route::middleware(['guard'])->group(function () {
     Route::prefix('admin')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index']);
-        Route::get('/dashboard/create', function () {
-            return redirect('/');
-        });
         Route::get('job/{id}/applicants', [CareerController::class, 'getApplicant']); //it gives all applicants of perticular job id
         Route::get('/jobs', [CareerController::class, 'allJobs']); //gives all listed jobs
         Route::get('/job/{id}', [CareerController::class, 'findJob'])->where('id', '[0-9]+');; //gives perticular job information
-        Route::get('/category', [App\Http\Controllers\Admin\CategoryController::class, 'index']);
+        // Route::get('/category', [App\Http\Controllers\Admin\CategoryController::class, 'index']);
         Route::get('/users', [UserController::class, 'allUsers']);
+        Route::get('create-category',[CategoryController::class,'create'])->name('create-category');
+        Route::post('create-category',[CategoryController::class,'store']);
+        Route::get('view-category',[CategoryController::class,'view_category'])->name('view-category');
     });
 });
 Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
-// });
+

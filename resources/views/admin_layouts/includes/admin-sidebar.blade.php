@@ -12,14 +12,14 @@
                     <div class="sb-sidenav-menu-heading">Interface</div>
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                         <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                        Layouts
+                         Blog
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
                   {{-- Navigation for Add Category And View Available Category --}}
                     <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="{{url('admin/dashboard/create')}}">Add Category</a>
-                            <a class="nav-link" href="{{url('admin/dashboard/view-category')}}">View Category</a>
+                            <a class="nav-link" href="{{url('admin/create-category')}}">Add Category</a>
+                            <a class="nav-link" href="{{url('admin/view-category')}}">View Category</a>
                         </nav>
                     </div>
 
@@ -30,7 +30,7 @@
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
                   {{-- Navigation for Add Jobs And View Available Jobs --}}
-                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                    <div class="nav-link collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
                             <a class="nav-link" href="{{url('admin/dashboard/create')}}">Add jobs</a>
                             <a class="nav-link" href="{{url('admin/dashboard/view-category')}}">View jobs</a>
