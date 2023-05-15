@@ -16,7 +16,7 @@ class loginCheck
     public function handle(Request $request, Closure $next): Response
     {
         if (session()->has('name')) {
-            return redirect()->back();
+            return redirect()->back()->with('error', "your alredy logged in");
         }
         return $next($request);
     }

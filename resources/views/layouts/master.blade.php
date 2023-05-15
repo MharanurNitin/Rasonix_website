@@ -16,12 +16,13 @@
     <title>@yield('title')</title>
 </head>
 
-<body class='bg-slate-400'>
+<body>
     {{-- navbar file --}}
     @include('layouts.includes.header')
     @yield('content')
 {{-- footer file --}}
-    @include('layouts.includes.footer')
+    {{-- @include('layouts.includes.footer') --}}
+    <div class="footer"><h1>Hello this is footer</h1></div>
 </body>
 
 </html>

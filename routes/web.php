@@ -36,9 +36,7 @@ Route::middleware('is_login')->group(function () {
 Route::middleware(['guard'])->group(function () {
     Route::prefix('admin')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index']);
-        Route::get('/dashboard/create', function () {
-            return redirect('/');
-        });
+
         Route::get('job/{id}/applicants', [CareerController::class, 'getApplicant']); //it gives all applicants of perticular job id
         Route::get('/jobs', [CareerController::class, 'allJobs']); //gives all listed jobs
         Route::get('/job/{id}', [CareerController::class, 'findJob'])->where('id', '[0-9]+');; //gives perticular job information
