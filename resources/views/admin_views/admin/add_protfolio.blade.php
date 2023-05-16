@@ -15,31 +15,6 @@
                 @endforeach
             </div>
             @endif
-            {{-- <form action="{{url('admin/add-portfolio')}}" method="POST">
-                @csrf
-                <div class="mb-3">
-                    <label for="">Protfolio Name</label>
-                    <input type="text" name='title' class="form-control">
-                </div>
-
-                <div class="mb-3">
-                    <label for="">Description</label>
-                    <input type="text" name='description' class="form-control">
-                </div>
-
-                <div class="mb-3">
-                    <label for="">Image URL</label>
-                    <input type="text" name='image_url' class="form-control">
-                </div>
-
-                <div class="mb-3">
-                    <label for="">Status</label>
-                    <input type="checkbox" name='status' class="form-control">
-                </div>
-
-                <button class="btn btn-lg btn-primary" type='submit'>Submit</button>
-            </form> --}}
-
             <form action="{{ route('add-portfolio') }}" method="POST">
                 @csrf
 

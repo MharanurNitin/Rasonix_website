@@ -17,10 +17,28 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    //old
+    // protected $fillable = [
+    //     'name',
+    //     'email',
+    //     'password',
+
+    // ];
     protected $fillable = [
         'name',
         'email',
+        'phone_no',
         'password',
+        'remember_token',
+        'role',
+        'profile_image',
+        'joining_date',
+        'block_status',
+    ];
+
+    protected $casts = [
+        'joining_date' => 'datetime',
+        'block_status' => 'boolean',
     ];
 
     /**
@@ -28,16 +46,18 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $hidden = [
-        'remember_token',
-    ];
+    //old
+    // protected $hidden = [
+    //     'remember_token',
+    // ];
 
     /**
      * The attributes that should be cast.
      *
      * @var array<string, string>
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    //old
+    // protected $casts = [
+    //     'email_verified_at' => 'datetime',
+    // ];
 }

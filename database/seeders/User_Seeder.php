@@ -26,8 +26,17 @@ class User_Seeder extends Seeder
                 'name' => 'Nitin',
                 'email' => 'nitin@editor.com',
                 'phone_no' => '8424838221',
-                'password' => 'password',
+                'password' => Hash::make('12345678'),
                 'role' => 'editor'
+            ],
+            [
+                'name' => 'Nitin',
+                'email' => 'nitin@admin.com',
+                'phone_no' => '8424838221',
+                'password' => Hash::make('12345678'),
+                'role' => 'admin',
+                'created_at' => now(),
+                'updated_at' => now(),
             ]
         );
     }

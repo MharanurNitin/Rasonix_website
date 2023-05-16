@@ -56,6 +56,8 @@ Route::middleware(['guard'])->group(function () {
         Route::get('edit-portfolio/{id}',[PortfolioController::class,'edit_portfolio'])->name('edit-portfolio');
         Route::put('update-portfolio/{id}',[PortfolioController::class, 'update_portfolio'])->name('update-portfolio');
         Route::get('delete-portfolio/{id}',[PortfolioController::class, 'destroy'])->name('delete-portfolio');
+        Route::get('add-user', [UserController::class,'add_user'])->name('add_user');
+        Route::post('add-user', [UserController::class,'store_user'])->name('add-user');
 
     });
 });
