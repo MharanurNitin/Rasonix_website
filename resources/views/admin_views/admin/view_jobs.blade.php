@@ -8,7 +8,7 @@
             <li class="breadcrumb-item active">Jobs</li>
         </ol>
         <div class="row">
-            <table class="table table-bordered">
+            <table class="table table-bordered table-hover">
                 <thead class="thead-dark">
                   <tr>
                     <th scope="col">#</th>
