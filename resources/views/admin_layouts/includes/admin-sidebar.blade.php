@@ -1,6 +1,4 @@
-
-
-    <div id="layoutSidenav_nav">
+<div id="layoutSidenav_nav">
         <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
             <div class="sb-sidenav-menu">
                 <div class="nav">
@@ -32,8 +30,8 @@
                   {{-- Navigation for Add Jobs And View Available Jobs --}}
                     <div class="nav-link collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="{{url('admin/dashboard/create')}}">Add jobs</a>
-                            <a class="nav-link" href="{{url('admin/dashboard/view-category')}}">View jobs</a>
+                            <a class="nav-link" href="{{url('admin/add-jobs')}}">Add jobs</a>
+                            <a class="nav-link" href="{{url('admin/view-jobs')}}">View jobs</a>
                         </nav>
                     </div>
 
@@ -46,8 +44,8 @@
                   {{-- Navigation for Add Jobs And View Available Jobs --}}
                     <div class="nav-link collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="{{url('admin/dashboard/create')}}">Add Blog</a>
-                            <a class="nav-link" href="{{url('admin/dashboard/view-category')}}">View Blog</a>
+                            <a class="nav-link" href="{{url('admin/add-blog')}}">Add Blog</a>
+                            <a class="nav-link" href="{{url('admin/view-blog')}}">View Blog</a>
                         </nav>
                     </div>
 
@@ -98,5 +96,4 @@
                 {{-- {{$user = Auth::user()->name}} --}}
             </div>
         </nav>
-    </div>
-
+    </div>

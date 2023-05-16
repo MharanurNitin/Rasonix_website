@@ -10,6 +10,6 @@ class Job_applicant extends Model
     use HasFactory;
     public function Career()
     {
-        // return $this->belongsTo(Career::class);
+        return $this->belongsTo(Career::class);
     }
 }

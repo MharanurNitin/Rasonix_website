@@ -9,7 +9,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
-
+use App\Http\Controllers\BlogsController;
 
 // public Routes
 
@@ -35,6 +35,9 @@ Route::middleware(['guard'])->group(function () {
         Route::get('create-category', [CategoryController::class, 'create'])->name('create-category');
         Route::post('create-category', [CategoryController::class, 'store']);
         Route::get('view-category', [CategoryController::class, 'view_category'])->name('view-category');
+        Route::get('add-blog', [BlogsController::class, 'index']);
+        Route::post('add-blog', [BlogsController::class, 'store']);
+        Route::get('view-blog', [BlogsController::class, 'viewBlog']);
     });
 });
 Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
