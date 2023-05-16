@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -11,7 +12,8 @@ class BlogsController extends Controller
     //
     public function index()
     {
-        return view('admin_views.admin.blog');
+        $categories = Category::all();
+        return view('admin_views.admin.blog', compact('categories'));
     }
     public function store(Request $request)
     {
@@ -47,6 +49,7 @@ class BlogsController extends Controller
     public function viewBlog()
     {
         $blogs = Blog::all();
+
         return view('admin_views.admin.viewAddedBlogs', compact('blogs'));
     }
     public function edit($id)
