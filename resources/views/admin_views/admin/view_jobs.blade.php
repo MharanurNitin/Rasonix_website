@@ -8,8 +8,8 @@
             <li class="breadcrumb-item active">Jobs</li>
         </ol>
         <div class="row">
-            <table class="table">
-                <thead>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Title</th>

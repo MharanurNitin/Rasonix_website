@@ -2,21 +2,53 @@
 
 @section('content')
 
-    <div class="container-fluid px-4">
-        <h1 class="mt-4">Edit / Update jobs</h1>
-        <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active">Edit / Update Jobs</li>
-        </ol>
-        <div class="row">
-            <div class="col-xl-3 col-md-6">
-                <div class="card bg-primary text-white mb-4">
-                    <div class="card-body">Primary Card</div>
-                    <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link" href="#">View Details</a>
-                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                    </div>
-                </div>
+<div class="container-fluid px-4">
+    <div class="card mt-4">
+        <div class="card-header">
+            <h4 class="">Edit / Update Jobs</h4>
+        </div>
+        <div class="card-body">
+            @if($errors->any())
+            <div class="alert alert-danger">
+                @foreach($errors->all() as $error)
+                 <div>{{$error}}</div>
+                @endforeach
             </div>
+            @endif
+            <form action="{{url('admin/update-jobs/'.$career->id)}}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+                <div class="mb-3">
+                    <label for="">Title</label>
+                    <input type="text" name='title' class="form-control" value="{{$career->title}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="">Description</label>
+                    {{-- <input type="text" name='name' class="form-control"> --}}
+                    <textarea name="description" id="" cols="150" rows="5">{{$career->description}}</textarea>
+                </div>
+
+
+
+                <div class="mb-3">
+                    <label for="category">Category</label>
+                    <select class="form-control" id="category" name="categories_id"  required>
+                        <option value="" selected disabled>select a Category</option>
+                        @foreach($categories as $category)
+                            <option  value="{{ $category->name }}" @selected($category->id == $career->categories_id )>{{ $category->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="">Select Document</label>
+                    <input type="file" name='document' class="form-control">
+                </div>
+
+                <button class="btn btn-lg btn-primary" type='submit'>Submit</button>
+            </form>
         </div>
     </div>
+</div>
 @endsection

@@ -64,9 +64,9 @@ class CareerController extends Controller
 
     }
     public function edit_jobs($id)
-    {
+    {   $categories = Category::all();
         $career = Career::find($id);
-        return view('admin_views.admin.edit_jobs',compact('career'));
+        return view('admin_views.admin.edit_jobs',compact('career','categories'));
     }
 
     // public function destroy($id)
@@ -89,21 +89,52 @@ class CareerController extends Controller
     // }
 
     public function destroy($id)
-{
-    $career = Career::find($id);
+    {
+        $career = Career::find($id);
 
-    if ($career) {
-        // Check if the career has a document file and delete it if it exists
-        if ($career->document && Storage::disk('public')->exists($career->document)) {
-            Storage::disk('public')->delete($career->document);
-        }
+        if ($career)
+        {
+            // Check if the career has a document file and delete it if it exists
+            if ($career->document && Storage::disk('public')->exists($career->document)) {
+                Storage::disk('public')->delete($career->document);
+                }
 
         // Delete the career model
-        $career->delete();
+            $career->delete();
 
-        return redirect('admin/view-jobs')->with('message', 'Career deleted successfully');
-    } else {
-        return redirect('admin/view-jobs')->with('message', 'Career not found');
+            return redirect('admin/view-jobs')->with('message', 'Career deleted successfully');
+        }
+        else
+            {
+                    return redirect('admin/view-jobs')->with('message', 'Career not found');
+            }
     }
-}
+
+    public function update_jobs(Request $request, $id)
+    {
+        $career = Career::find($id);
+
+        if ($career) {
+            $validatedData = $request->validate([
+                'title' => 'required',
+                'description' => 'nullable',
+                'document' => 'nullable|mimes:pdf|max:2048',
+            ]);
+
+            $career->title = $validatedData['title'];
+            $career->description = $validatedData['description'];
+
+            if ($request->hasFile('document')) {
+                $documentPath = $request->file('document')->store('public/documents');
+                $career->document = $documentPath;
+            }
+
+            $career->save();
+
+            return redirect('admin/view-jobs')->with('message', 'Career updated successfully');
+        } else {
+            return redirect('admin/view-jobs')->with('message', 'Career not found');
+        }
+    }
+
 }

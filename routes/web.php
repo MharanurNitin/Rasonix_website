@@ -7,6 +7,7 @@ use App\Http\Controllers\CareerController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 
@@ -39,7 +40,10 @@ Route::middleware(['guard'])->group(function () {
         Route::post('add-jobs', [CareerController::class, 'store_jobs'])->name('add_jobs');
         Route::get('view-jobs', [CareerController::class, 'view_jobs'])->name('view_jobs');
         Route::get('edit-jobs/{id}', [CareerController::class, 'edit_jobs'])->name('edit_jobs');
+        Route::put('update-jobs/{id}', [CareerController::class, 'update_jobs'])->name('update_jobs');
         Route::get('delete-jobs/{id}', [CareerController::class, 'destroy'])->name('delete_jobs');
+        Route::get('add-portfolio',[PortfolioController::class,'add_protfolio'])->name('add-portfolio');
+        Route::get('edit-portfolio',[PortfolioController::class,'edit_protfolio'])->name('edit-portfolio');
     });
 });
 Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
