@@ -2,21 +2,44 @@
 
 @section('content')
 
-    <div class="container-fluid px-4">
-        <h1 class="mt-4">Add Portfolio</h1>
-        <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active">Add Portfolio</li>
-        </ol>
-        <div class="row">
-            <div class="col-xl-3 col-md-6">
-                <div class="card bg-primary text-white mb-4">
-                    <div class="card-body">Primary Card</div>
-                    <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link" href="#">View Details</a>
-                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                    </div>
-                </div>
+<div class="container-fluid px-4">
+    <div class="card mt-4">
+        <div class="card-header">
+            <h4 class="">Add Portfolio</h4>
+        </div>
+        <div class="card-body">
+            @if($errors->any())
+            <div class="alert alert-danger">
+                @foreach($errors->all() as $error)
+                 <div>{{$error}}</div>
+                @endforeach
             </div>
+            @endif
+            <form action="{{url('admin/create-category')}}" method="POST">
+                @csrf
+                <div class="mb-3">
+                    <label for="">Protfolio Name</label>
+                    <input type="text" name='title' class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label for="">Description</label>
+                    <input type="text" name='description' class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label for="">Image URL</label>
+                    <input type="file" name='image_url' class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label for="">Status</label>
+                    <input type="checkbox" name='status' class="form-control">
+                </div>
+
+                <button class="btn btn-lg btn-primary" type='submit'>Submit</button>
+            </form>
         </div>
     </div>
+</div>
 @endsection

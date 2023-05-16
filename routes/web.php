@@ -43,7 +43,7 @@ Route::middleware(['guard'])->group(function () {
         Route::put('update-jobs/{id}', [CareerController::class, 'update_jobs'])->name('update_jobs');
         Route::get('delete-jobs/{id}', [CareerController::class, 'destroy'])->name('delete_jobs');
         Route::get('add-portfolio',[PortfolioController::class,'add_protfolio'])->name('add-portfolio');
-        Route::get('edit-portfolio',[PortfolioController::class,'edit_protfolio'])->name('edit-portfolio');
+        Route::get('view-portfolio',[PortfolioController::class,'view_protfolio'])->name('view-portfolio');
     });
 });
 Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');

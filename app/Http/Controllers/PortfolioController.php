@@ -11,8 +11,8 @@ class PortfolioController extends Controller
     return view('admin_views.admin.add_protfolio');
    }
 
-   public function edit_protfolio()
+   public function view_protfolio()
    {
-    return view('admin_views.admin.edit_protfolio');
+    return view('admin_views.admin.view_portfolio');
    }
 }
