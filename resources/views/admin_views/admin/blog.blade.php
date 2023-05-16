@@ -5,7 +5,8 @@
     <form action='{{url('admin/add-blog')}}' method="post" class="" enctype="multipart/form-data">
     @csrf
      <label for="title">Category_id</label>
-     <input type="text" name="category_id" class="form-control"/>
+     {{-- <input type="text" name="category_id" class="form-control"/> --}}
+     <select
        <label for="title">Title</label>
      <input type="text" name="title" class="form-control"/>
        <label for="slug">Slug</label>
