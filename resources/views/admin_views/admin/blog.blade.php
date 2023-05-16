@@ -27,4 +27,5 @@
      <button class="bg-blue-800 p-2 text-white text-xl mt-2 w-[120px] m-auto rounded">Submit</button>
     </form>
 </div>
+
 @endsection

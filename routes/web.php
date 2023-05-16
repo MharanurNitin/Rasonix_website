@@ -38,6 +38,9 @@ Route::middleware(['guard'])->group(function () {
         Route::get('add-blog', [BlogsController::class, 'index']);
         Route::post('add-blog', [BlogsController::class, 'store']);
         Route::get('view-blog', [BlogsController::class, 'viewBlog']);
+        Route::get('blog/delete/{id}', [BlogsController::class, 'destroy']);
+        Route::get('blog/edit/{id}', [BlogsController::class, 'edit']);
+        Route::put('blog/edit/{id}', [BlogsController::class, 'editsubmit'])->name('blogeditsubmit');
     });
 });
 Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
