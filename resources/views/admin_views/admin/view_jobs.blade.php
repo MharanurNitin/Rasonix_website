@@ -17,10 +17,12 @@
                     <th scope="col">Description</th>
                     <th scope="col">Action</th>
                   </tr>
+
                 </thead>
                 <tbody>
+
                     @foreach($career as $cate_item)
-                     <tr>
+                     <tr onclick="window.location='http://localhost:8000/admin/view-jobs/{{$cate_item->id}}';">
 
                         <td>{{$cate_item->id}}</td>
                         <td>{{$cate_item->title}}</td>
@@ -41,8 +43,11 @@
                     </tr>
 
                     @endforeach
+
                 </tbody>
               </table>
         </div>
     </div>
+
+
 @endsection
