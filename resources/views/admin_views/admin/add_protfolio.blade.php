@@ -15,7 +15,7 @@
                 @endforeach
             </div>
             @endif
-            <form action="{{url('admin/create-category')}}" method="POST">
+            {{-- <form action="{{url('admin/add-portfolio')}}" method="POST">
                 @csrf
                 <div class="mb-3">
                     <label for="">Protfolio Name</label>
@@ -29,7 +29,7 @@
 
                 <div class="mb-3">
                     <label for="">Image URL</label>
-                    <input type="file" name='image_url' class="form-control">
+                    <input type="text" name='image_url' class="form-control">
                 </div>
 
                 <div class="mb-3">
@@ -38,7 +38,37 @@
                 </div>
 
                 <button class="btn btn-lg btn-primary" type='submit'>Submit</button>
+            </form> --}}
+
+            <form action="{{ route('add-portfolio') }}" method="POST">
+                @csrf
+
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="title" name="title" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea class="form-control" id="description" name="description" required></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="image_url" class="form-label">Image URL</label>
+                    <input type="text" class="form-control" id="image_url" name="image_url">
+                </div>
+
+                <div class="mb-3">
+                    <label for="status" class="form-label">Status</label>
+                    <select class="form-select" id="status" name="status" required>
+                        <option value="visible">Visible</option>
+                        <option value="hidden">Hidden</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Add Portfolio</button>
             </form>
+
         </div>
     </div>
 </div>
