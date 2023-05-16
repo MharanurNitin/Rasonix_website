@@ -21,8 +21,6 @@
                         <label for="">Category Name</label>
                         <input type="text" name='name' class="form-control">
                     </div>
-
-
                     <button class="btn btn-lg btn-primary" type='submit'>Submit</button>
                 </form>
             </div>
