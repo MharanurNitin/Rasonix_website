@@ -54,9 +54,10 @@ class BlogsController extends Controller
     }
     public function edit($id)
     {
+        $categories = Category::all();
         $blog = Blog::find($id);
         $blogid = $blog->id;
-        return view('admin_views.admin.editblog', compact('blog', 'blogid'));
+        return view('admin_views.admin.editblog', compact('blog', 'blogid', 'categories'));
     }
     public function editsubmit(Request $request, $id)
     {

@@ -1,5 +1,10 @@
 @extends('admin_layouts.master')
 @section('content')
+<style>
+  tbody:nth-child(2n+1){
+   background: rgba(0, 0, 0, 0.372)
+  }
+</style>
 <div class="container mt-3 mb-2">
     <div class="d-flex justify-content-between">
   <h2>All Blogs</h2>   

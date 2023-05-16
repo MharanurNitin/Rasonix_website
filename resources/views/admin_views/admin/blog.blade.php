@@ -6,7 +6,7 @@
     @csrf
      <label for="title">Category_id</label>
      {{-- <input type="text" name="category_id" class="form-control"/> --}}
-     <select class="form-control">
+     <select class="form-control" name="category_id">
       @foreach($categories as $category)
      <option value="{{$category->id}}">{{$category->name}}</option>
       @endforeach
@@ -29,7 +29,7 @@
      <input type="text" name="meta_description" class="form-control"/>
       <label for="meta_keyword">meta_keyword</label>
      <input type="text" name="meta_keyword" class="form-control"/>
-     <button class="bg-blue-800 p-2 text-white text-xl mt-2 w-[120px] m-auto rounded">Submit</button>
+     <button class="btn btn-primary px-3 py-2 mt-3">Submit</button>
     </form>
 </div>
 

@@ -1,12 +1,16 @@
 @extends('admin_layouts.master')
 @section('content')
 <div class="blog-form-container p-4">
-    <h1 class="text-4xl font-semibold text-center">Add Blog</h1>
+    <h1 class="text-4xl font-semibold text-center">Edit Blog</h1>
     <form action='{{url('admin/blog/edit/'.$blogid)}}' method="post" class="" enctype="multipart/form-data">
     @csrf
     @method('PUT')
      <label for="title">Category_id</label>
-     <input type="text" name="category_id" class="form-control" value="{{$blog->category_id}}"/>
+      <select class="form-control" name="category_id">
+      @foreach($categories as $category)
+     <option value="{{$category->id}}" @selected($blog->category_id==$category->id)>{{$category->name}}</option>
+      @endforeach
+     </select>
        <label for="title">Title</label>
      <input type="text" name="title" class="form-control" value="{{$blog->title}}"/>
        <label for="slug">Slug</label>
