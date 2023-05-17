@@ -27,7 +27,7 @@ Route::middleware('is_login')->group(function () {
 });
 Route::middleware(['guard'])->group(function () {
     Route::prefix('admin')->group(function () {
-        Route::get('/dashboard', [DashboardController::class, 'index']);
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::get('job/{id}/applicants', [CareerController::class, 'getApplicant']); //it gives all applicants of perticular job id
         Route::get('/jobs', [CareerController::class, 'allJobs']); //gives all listed jobs
         Route::get('/job/{id}', [CareerController::class, 'findJob'])->where('id', '[0-9]+');; //gives perticular job information
@@ -58,6 +58,10 @@ Route::middleware(['guard'])->group(function () {
         Route::get('delete-portfolio/{id}',[PortfolioController::class, 'destroy'])->name('delete-portfolio');
         Route::get('add-user', [UserController::class,'add_user'])->name('add_user');
         Route::post('add-user', [UserController::class,'store_user'])->name('add-user');
+        Route::get('view-users', [UserController::class,'view_user'])->name('view-users');
+        Route::get('edit-users/{id}', [UserController::class,'edit_user'])->name('edit-users');
+        Route::put('update-user/{id}', [UserController::class,'update_user'])->name('update-user');
+        Route::get('delete-user/{id}', [UserController::class,'destroy'])->name('delete-user');
 
     });
 });

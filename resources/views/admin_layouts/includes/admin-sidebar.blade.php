@@ -3,7 +3,7 @@
         <div class="sb-sidenav-menu">
             <div class="nav">
                 <div class="sb-sidenav-menu-heading">Core</div>
-                <a class="nav-link {{Request::is('admin/dashboard') ? 'active' : ''}}" href="dashboard">
+                <a class="nav-link {{Request::is('admin/dashboard') ? 'active' : ''}}" href="{{route('dashboard')}}">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Dashboard
                 </a>
@@ -69,7 +69,7 @@
                 <div class="collapse" id="collapseUser" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link" href="{{ url('admin/add-user') }}">Add User</a>
-                        <a class="nav-link" href="{{ url('admin/view-portfolio') }}">Edit User Setting</a>
+                        <a class="nav-link" href="{{ url('admin/view-users') }}">Edit User Setting</a>
                     </nav>
                 </div>
 
