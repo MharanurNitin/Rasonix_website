@@ -13,8 +13,11 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\BlogsController;
 
 // public Routes
-
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/contact', function () {
+    return view('contact');
+});
+Route::post('/contact', [ContactController::class, 'store']);
 
 // Register Route
 Route::middleware('is_login')->group(function () {
@@ -50,13 +53,14 @@ Route::middleware(['guard'])->group(function () {
         Route::get('delete-jobs/{id}', [CareerController::class, 'destroy'])->name('delete_jobs');
         Route::get('add-portfolio', [PortfolioController::class, 'add_protfolio'])->name('add-portfolio');
         Route::get('view-portfolio', [PortfolioController::class, 'view_protfolio'])->name('view-portfolio');
-        Route::get('add-portfolio',[PortfolioController::class,'add_protfolio'])->name('add-portfolio');
-        Route::post('add-portfolio',[PortfolioController::class,'store'])->name('add-portfolio');
-        Route::get('view-portfolio',[PortfolioController::class,'view_protfolio'])->name('view-portfolio');
-        Route::get('edit-portfolio/{id}',[PortfolioController::class,'edit_portfolio'])->name('edit-portfolio');
-        Route::put('update-portfolio/{id}',[PortfolioController::class, 'update_portfolio'])->name('update-portfolio');
-        Route::get('delete-portfolio/{id}',[PortfolioController::class, 'destroy'])->name('delete-portfolio');
-
+        Route::get('add-portfolio', [PortfolioController::class, 'add_protfolio'])->name('add-portfolio');
+        Route::post('add-portfolio', [PortfolioController::class, 'store'])->name('add-portfolio');
+        Route::get('view-portfolio', [PortfolioController::class, 'view_protfolio'])->name('view-portfolio');
+        Route::get('edit-portfolio/{id}', [PortfolioController::class, 'edit_portfolio'])->name('edit-portfolio');
+        Route::put('update-portfolio/{id}', [PortfolioController::class, 'update_portfolio'])->name('update-portfolio');
+        Route::get('delete-portfolio/{id}', [PortfolioController::class, 'destroy'])->name('delete-portfolio');
+        Route::get('/all-contacts', [ContactController::class, 'getData']);
+        Route::get('/contact/delete/{id}', [ContactController::class, 'destroy']);
     });
 });
 Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
