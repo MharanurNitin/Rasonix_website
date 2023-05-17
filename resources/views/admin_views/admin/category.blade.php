@@ -8,11 +8,9 @@
                 <h4 class="">Add Category</h4>
             </div>
             <div class="card-body">
-                @if($errors->any())
-                <div class="alert alert-danger">
-                    @foreach($errors->all() as $error)
-                     <div>{{$error}}</div>
-                    @endforeach
+                @if(session('message'))
+                <div class="alert alert-success">
+                   {{session('message')}}
                 </div>
                 @endif
                 <form action="{{url('admin/create-category')}}" method="POST">

@@ -31,7 +31,7 @@
         <td>{{$contact->message}}</td>
         <td>{{$contact->replied}}</td>
         <td>{{$contact->reply}}</td>
-        <td><a href={{url('admin/contact/reply/'.$contact->id)}} class="btn btn-primary text-white p-2">Add Reply</a></td>
+        <td><a href={{url('admin/contact/reply/'.$contact->id)}} class="btn btn-primary text-white p-2">Reply</a></td>
         <td><a href="{{url('admin/contact/delete/'.$contact->id)}}" class="btn btn-danger text-white p-2">Delete</a></td>
       </tr>
       @endforeach

@@ -19,9 +19,9 @@ Route::get('/contact', function () {
 });
 Route::post('/contact', [ContactController::class, 'store']);
 
-// Register Route
+// protected route for if user already login
 Route::middleware('is_login')->group(function () {
-
+    // Register Route
     Route::get('/register', [RegisterController::class, 'index']);
     Route::post('/register', [RegisterController::class, 'store'])->name('register');
     // Login Route
@@ -30,7 +30,7 @@ Route::middleware('is_login')->group(function () {
 });
 Route::middleware(['guard'])->group(function () {
     Route::prefix('admin')->group(function () {
-        Route::get('/dashboard', [DashboardController::class, 'index']);
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::get('job/{id}/applicants', [CareerController::class, 'getApplicant']); //it gives all applicants of perticular job id
         Route::get('/jobs', [CareerController::class, 'allJobs']); //gives all listed jobs
         Route::get('/job/{id}', [CareerController::class, 'findJob'])->where('id', '[0-9]+');; //gives perticular job information
@@ -59,7 +59,7 @@ Route::middleware(['guard'])->group(function () {
         Route::get('edit-portfolio/{id}', [PortfolioController::class, 'edit_portfolio'])->name('edit-portfolio');
         Route::put('update-portfolio/{id}', [PortfolioController::class, 'update_portfolio'])->name('update-portfolio');
         Route::get('delete-portfolio/{id}', [PortfolioController::class, 'destroy'])->name('delete-portfolio');
-        Route::get('/all-contacts', [ContactController::class, 'getData']);
+        Route::get('all-contacts', [ContactController::class, 'getdata']);
         Route::get('/contact/delete/{id}', [ContactController::class, 'destroy']);
     });
 });
