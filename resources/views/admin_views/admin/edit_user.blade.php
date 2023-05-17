@@ -8,6 +8,11 @@
             <li class="breadcrumb-item active">User</li>
         </ol>
         <div class="row">
+            @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
             <form action="{{ url('admin/update-user', $user->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')

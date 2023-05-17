@@ -117,6 +117,6 @@ class UserController extends Controller
         $user->delete();
 
         // Redirect or return a response
-        return redirect()->route('view-users')->with('success', 'Portfolio deleted successfully!');
+        return redirect()->route('view-users')->with('success', 'User deleted successfully!');
     }
 }

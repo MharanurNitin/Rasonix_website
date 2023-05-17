@@ -72,6 +72,11 @@
                         <a class="nav-link" href="{{ url('admin/view-users') }}">Edit User Setting</a>
                     </nav>
                 </div>
+                <div class="sb-sidenav-menu-heading">Addons</div>
+                <a class="nav-link" href="charts.html">
+                    <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                    Contact
+                </a>
 
             </div>
         </div>
