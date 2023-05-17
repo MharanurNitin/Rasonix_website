@@ -56,6 +56,12 @@ Route::middleware(['guard'])->group(function () {
         Route::get('add-portfolio', [PortfolioController::class, 'add_protfolio'])->name('add-portfolio');
         Route::post('add-portfolio', [PortfolioController::class, 'store'])->name('add-portfolio');
         Route::get('view-portfolio', [PortfolioController::class, 'view_protfolio'])->name('view-portfolio');
+        Route::get('add-user', [UserController::class,'add_user'])->name('add_user');
+        Route::post('add-user', [UserController::class,'store_user'])->name('add-user');
+        Route::get('view-users', [UserController::class,'view_user'])->name('view-users');
+        Route::get('edit-users/{id}', [UserController::class,'edit_user'])->name('edit-users');
+        Route::put('update-user/{id}', [UserController::class,'update_user'])->name('update-user');
+        Route::get('delete-user/{id}', [UserController::class,'destroy'])->name('delete-user');
         Route::get('edit-portfolio/{id}', [PortfolioController::class, 'edit_portfolio'])->name('edit-portfolio');
         Route::put('update-portfolio/{id}', [PortfolioController::class, 'update_portfolio'])->name('update-portfolio');
         Route::get('delete-portfolio/{id}', [PortfolioController::class, 'destroy'])->name('delete-portfolio');
