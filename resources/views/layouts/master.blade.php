@@ -21,7 +21,14 @@
    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>@yield('title')</title>
 </head>
-
+<style>
+    body{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        overflow-x:hidden;
+    }
+</style>
 <body>
     {{-- navbar file --}}
     @include('layouts.includes.header')
