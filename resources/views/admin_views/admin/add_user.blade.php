@@ -5,7 +5,7 @@
 <div class="container-fluid px-4">
     <div class="card mt-4">
         <div class="card-header">
-            <h4 class="">Add Portfolio</h4>
+            <h4 class="">Add User</h4>
         </div>
         <div class="card-body">
             @if(session('success'))
