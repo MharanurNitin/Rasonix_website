@@ -43,7 +43,7 @@
 
                 <div class="mb-3">
                     <label for="">Select Document</label>
-                    <input type="file" name='document' class="form-control">
+                    <input type="file" accept=".pdf,.png,.jpg,.jpeg" name='document' class="form-control">
                 </div>
 
                 <button class="btn btn-lg btn-primary" type='submit'>Submit</button>

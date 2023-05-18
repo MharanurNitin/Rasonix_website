@@ -73,7 +73,7 @@
                     </nav>
                 </div>
                 <div class="sb-sidenav-menu-heading">Addons</div>
-                <a class="nav-link" href="admin/all-contact">
+                <a class="nav-link" href="{{route('all-contacts')}}">
                     <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                      All Contact
                 </a>

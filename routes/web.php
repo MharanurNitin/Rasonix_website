@@ -66,7 +66,7 @@ Route::middleware(['guard'])->group(function () {
         Route::get('edit-portfolio/{id}', [PortfolioController::class, 'edit_portfolio'])->name('edit-portfolio');
         Route::put('update-portfolio/{id}', [PortfolioController::class, 'update_portfolio'])->name('update-portfolio');
         Route::get('delete-portfolio/{id}', [PortfolioController::class, 'destroy'])->name('delete-portfolio');
-        Route::get('all-contacts', [ContactController::class, 'getdata']);
+        Route::get('all-contacts', [ContactController::class, 'getdata'])->name('all-contacts');
         Route::get('/contact/delete/{id}', [ContactController::class, 'destroy']);
 
         // Route For Change Password
