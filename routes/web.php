@@ -2,15 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CareerController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\BlogsController;
 
 // public Routes
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
@@ -67,6 +68,10 @@ Route::middleware(['guard'])->group(function () {
         Route::get('delete-portfolio/{id}', [PortfolioController::class, 'destroy'])->name('delete-portfolio');
         Route::get('all-contacts', [ContactController::class, 'getdata']);
         Route::get('/contact/delete/{id}', [ContactController::class, 'destroy']);
+
+        // Route For Change Password
+       Route::get('change-password',[ProfileController::class,'view_profile'])->name('change-password');
+       Route::post('update-password',[ProfileController::class,'update_password'])->name('update-password');
     });
 });
 Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
