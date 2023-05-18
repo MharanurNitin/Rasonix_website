@@ -41,6 +41,24 @@
                     @enderror
                 </div>
 
+                {{-- <div class="mb-3" style="width: 100%">
+                    <label  for="phone_no" class="form-label">Phone Number</label>
+                    <input type="tel" class="form-control" id="phone" name="phone_no" placeholder="">
+                    @error('phone_no')
+                        <span class="text-danger">{{$message}}</span>
+                    @enderror
+                    <span  id="valid-msg" class="hide">✓ Valid</span>
+                    <span  id="error-msg" class="hide"></span>
+                </div> --}}
+
+                {{-- <div class="mb-3" style="width: 100%">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input id="phone" type="tel" class="form-control" name="phone_no" style="width:90%">
+                    <br>
+                    <span id="valid-msg" class="hide">✓ Valid</span>
+                    <span id="error-msg" class="hide"></span>
+                </div> --}}
+
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
                     <input type="password" class="form-control" id="password" name="password" >
