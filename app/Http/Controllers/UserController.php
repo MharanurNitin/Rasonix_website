@@ -43,7 +43,7 @@ class UserController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
-            'phone_no' => 'required|unique:users',
+            'phone_no' => 'required|unique:users|min:10',
             'password' => 'required',
             'role' => 'required|in:guest,user,editor,admin,super_admin',
             'profile_image' => 'nullable|image',
@@ -68,7 +68,7 @@ class UserController extends Controller
 
     public function view_user()
     {
-        $users = User::all();
+        $users = User::paginate(10);
         return view('admin_views.admin.view_users', compact('users'));
     }
 
