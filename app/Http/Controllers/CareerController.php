@@ -39,7 +39,7 @@ class CareerController extends Controller
 
     public function view_jobs()
     {
-        $career = Career::all() ;
+        $career = Career::paginate(10) ;
         return view('admin_views.admin.view_jobs',['career'=> $career]);
     }
 

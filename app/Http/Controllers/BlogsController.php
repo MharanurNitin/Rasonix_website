@@ -13,6 +13,7 @@ class BlogsController extends Controller
     public function index()
     {
         $categories = Category::all();
+        // $categories = Category::paginate(10);
         return view('admin_views.admin.blog', compact('categories'));
     }
     public function store(Request $request)
@@ -56,8 +57,8 @@ class BlogsController extends Controller
     }
     public function viewBlog()
     {
-        $blogs = Blog::all();
-
+        //$blogs = Blog::all();
+        $blogs = Blog::paginate(10);
         return view('admin_views.admin.viewAddedBlogs', compact('blogs'));
     }
     public function edit($id)
