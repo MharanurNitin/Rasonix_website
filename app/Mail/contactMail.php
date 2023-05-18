@@ -12,13 +12,18 @@ use Illuminate\Queue\SerializesModels;
 class contactMail extends Mailable
 {
     use Queueable, SerializesModels;
-
+    public $user;
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($user)
     {
-        //
+        $this->user = $user;
+    }
+
+    public function build()
+    {
+        return $this->markdown('emails.contact')->subject(config('app.name') . ', contact us');
     }
 
     /**
@@ -27,7 +32,7 @@ class contactMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Contact Mail',
+            subject: 'Rasonix website user Contact Mail',
         );
     }
 

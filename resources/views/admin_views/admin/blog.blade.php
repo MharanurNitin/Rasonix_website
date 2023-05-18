@@ -18,9 +18,9 @@
      <label for="description">Description</label>
      <textarea name="description" class="form-control" id="textarea"></textarea>
      <label for="image">Image</label>
-     <input type="file" name="image" class="form-control"/>
+     <input type="file" name="image"  accept=".png, .jpg, .jpeg, .pdf"  class="form-control"/>
        <label for="thumbnail_image">Thumbnail_image</label>
-     <input type="file" name="thumbnail_image" class="form-control"/>
+     <input type="file" name="thumbnail_image"   accept=".png, .jpg, .jpeg, .pdf" class="form-control"/>
        <label for="tags">Tags</label>
      <input type="text" name="tags" class="form-control" placeholder="seperated by comma,"/>
        <label for="meta_title">Meta_title</label>
