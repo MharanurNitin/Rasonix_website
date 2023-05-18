@@ -21,7 +21,7 @@ class UserController extends Controller
         if (!$user || !Hash::check($req->password, $user->password)) {
             return 'username / password not matched';
         } else {
-            $req->session()->put(['id'=>$user->id,'name' => $user->name, 'role' => $user->role]);
+            $req->session()->put(['id'=>$user->id,'name' => $user->name, 'role' => $user->role,'password'=>$user->password]);
             return redirect('admin/dashboard');
         }
     }
@@ -38,7 +38,7 @@ class UserController extends Controller
 
     public function store_user(Request $request)
     {
-            // Validate the form data
+        // Validate the form data
         $validatedData = $request->validate([
         'name' => 'required',
         'email' => 'required|email|unique:users',
