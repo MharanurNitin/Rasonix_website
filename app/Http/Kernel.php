@@ -50,6 +50,9 @@ class Kernel extends HttpKernel
         ],
         'is_login' => [
             \App\Http\Middleware\loginCheck::class
+        ],
+        'is_editor' => [
+            \App\Http\Middleware\EditorMiddleware::class
         ]
     ];
 
