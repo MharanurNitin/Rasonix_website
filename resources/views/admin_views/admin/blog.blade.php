@@ -11,16 +11,29 @@
      <option value="{{$category->id}}">{{$category->name}}</option>
       @endforeach
      </select>
+      @error('category_id')
+     <div class="text-danger">{{$message}}</div>
+     @enderror
        <label for="title">Title</label>
      <input type="text" name="title" class="form-control"/>
+     @error('title')
+     <div class="text-danger">{{$message}}</div>
+     @enderror
        <label for="slug">Slug</label>
      <input type="text" name="slug" class="form-control"/>
+      @error('slug')
+     <div class="text-danger">{{$message}}</div>
+     @enderror
      <label for="description">Description</label>
      <textarea name="description" class="form-control" id="textarea"></textarea>
+      @error('description')
+     <div class="text-danger">{{$message}}</div>
+     @enderror
      <label for="image">Image</label>
-     <input type="file" name="image" class="form-control"/>
+     <input type="file" name="image"  accept=".png, .jpg, .jpeg, .pdf"  class="form-control"/>
+
        <label for="thumbnail_image">Thumbnail_image</label>
-     <input type="file" name="thumbnail_image" class="form-control"/>
+     <input type="file" name="thumbnail_image"   accept=".png, .jpg, .jpeg, .pdf" class="form-control"/>
        <label for="tags">Tags</label>
      <input type="text" name="tags" class="form-control" placeholder="seperated by comma,"/>
        <label for="meta_title">Meta_title</label>

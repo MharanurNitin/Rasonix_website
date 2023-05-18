@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\contactMail;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -12,8 +14,8 @@ class ContactController extends Controller
         $request->validate([
             'name' => 'required',
             'phone_number' => 'required|min:10|max:14',
-            'business_email' => 'email',
-            'message' => 'min:20'
+            'business_email' => 'required|email',
+            'message' => 'required|min:20'
         ]);
         $contact = new Contact();
         $contact->name = $request->name;
@@ -22,6 +24,7 @@ class ContactController extends Controller
         $contact->company_name = $request->company_name;
         $contact->message = $request->message;
         $contact->save();
+        Mail::to('mharanurnitin@gmail.com')->send(new contactMail($request));
         return redirect()->back()->with('success', 'Thank you for contact us.we will contct you shortly.');
     }
     public function getdata()
