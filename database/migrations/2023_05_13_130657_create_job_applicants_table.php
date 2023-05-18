@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->bigInteger('career_id')->unsigned();
             $table->foreign('career_id')->references('id')->on('careers')->onDelete('cascade');
-            $table->string('phone no')->unique();
+            $table->string('phone_no')->unique();
             $table->string('email')->unique();
             $table->string('address')->nullable()->default(null);
             $table->enum('gender', ['male', 'female', 'other']);

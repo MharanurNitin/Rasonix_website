@@ -33,39 +33,43 @@ class CareerController extends Controller
     }
 
     public function add_jobs()
-    {   $categories = Category::all() ;
-        return view('admin_views.admin.add_jobs',['categories'=> $categories]);
+    {
+        $categories = Category::all();
+        return view('admin_views.admin.add_jobs', ['categories' => $categories]);
     }
 
     public function view_jobs()
     {
+
+        $career = Career::all();
+        return view('admin_views.admin.view_jobs', ['career' => $career]);
+
         $career = Career::paginate(10) ;
         return view('admin_views.admin.view_jobs',['career'=> $career]);
+
     }
 
     public function store_jobs(Request $request)
     {
         // Save the document
-         $document = new Career();
-         $document->title = $request['title'];
-         $document->description = $request['description'];
-         $document->categories_id = $request['categories_id'];
-         $document->updated_by = 1;
+        $document = new Career();
+        $document->title = $request['title'];
+        $document->description = $request['description'];
+        $document->categories_id = $request['categories_id'];
+        $document->updated_by = (int)session('id');
 
-         // Handle file upload
+        // Handle file upload
 
-         if ($request->hasfile('document'))
-         {
+        if ($request->hasfile('document')) {
             $file = $request->file('document');
             $filename = rand() . '.' . $file->getClientOriginalExtension();
             $file->move('document/jobs/', $filename);
             $document->document = $filename;
-         }
+        }
 
-            $document->save();
+        $document->save();
 
-         return redirect('admin/add-jobs')->with('success', 'Document added successfully!');
-
+        return redirect('admin/add-jobs')->with('success', 'Document added successfully!');
     }
 
 
@@ -73,7 +77,7 @@ class CareerController extends Controller
     {
         $categories = Category::all();
         $career = Career::find($id);
-        return view('admin_views.admin.edit_jobs',compact('career','categories'));
+        return view('admin_views.admin.edit_jobs', compact('career', 'categories'));
     }
 
 
@@ -81,21 +85,18 @@ class CareerController extends Controller
     {
         $career = Career::find($id);
 
-        if ($career)
-        {
+        if ($career) {
             // Check if the career has a document file and delete it if it exists
             if ($career->document && Storage::disk('public')->exists($career->document)) {
                 Storage::disk('public')->delete($career->document);
-                }
+            }
 
             // Delete Job Entry.
             $career->delete();
 
             return redirect('admin/view-jobs')->with('message', 'Career deleted successfully');
-        }
-        else
-        {
-             return redirect('admin/view-jobs')->with('message', 'Career not found');
+        } else {
+            return redirect('admin/view-jobs')->with('message', 'Career not found');
         }
     }
 
@@ -104,8 +105,7 @@ class CareerController extends Controller
     {
         $career = Career::find($id);
 
-        if ($career)
-        {
+        if ($career) {
             $validatedData = $request->validate([
                 'title' => 'required',
                 'description' => 'required',
@@ -119,14 +119,11 @@ class CareerController extends Controller
                 $documentPath = $request->file('document')->store('public/documents');
                 $career->document = $documentPath;
             }
-                $career->save();
+            $career->save();
 
-                return redirect('admin/view-jobs')->with('message', 'Career updated successfully');
-        }
-        else
-        {
+            return redirect('admin/view-jobs')->with('message', 'Career updated successfully');
+        } else {
             return redirect('admin/view-jobs')->with('message', 'Career not found');
         }
     }
-
 }

@@ -23,8 +23,6 @@ return new class extends Migration
             $table->bigInteger('updated_by')->unsigned();
             $table->foreign('updated_by')->references('id')->on('users');
             $table->timestamps();
-
-
         });
     }
 
