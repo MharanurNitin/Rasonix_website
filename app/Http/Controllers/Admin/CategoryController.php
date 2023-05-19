@@ -28,7 +28,7 @@ class CategoryController extends Controller
   }
   public function view_category()
   {
-    $data = Category::all();
+    $data = Category::paginate(10);
     return view('admin_views.admin.view_category', ['data' => $data]);
   }
 }
