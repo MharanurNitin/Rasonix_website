@@ -40,8 +40,12 @@ class CareerController extends Controller
 
     public function view_jobs()
     {
-        $career = Career::paginate(10) ;
-        return view('admin_views.admin.view_jobs',['career'=> $career]);
+
+        // $career = Career::all();
+        // return view('admin_views.admin.view_jobs', ['career' => $career]);
+
+        $career = Career::paginate(10);
+        return view('admin_views.admin.view_jobs', ['career' => $career]);
     }
 
     public function store_jobs(Request $request)

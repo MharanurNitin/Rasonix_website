@@ -8,7 +8,7 @@
     <div class="container mt-3 mb-2">
         <div class="d-flex justify-content-between">
             <h2>All Blogs</h2>
-            <a href="{{ url('admin/add-blog') }}" class="btn btn-success float-right">Add Blog</a>
+            <a href="/admin/add-blog" class="btn btn-success float-right">Add Blog</a>
         </div>
         <table class="table  table-bordered table-hover">
             <thead>
@@ -33,12 +33,12 @@
             <tbody>
                 @foreach ($blogs as $blog)
                     <tr>
-                        <td>{{$blog->id}}</td>
+                        <td>{{ $blog->id }}</td>
                         <td>{{ Str::limit($blog->title, 25) }}</td>
                         <td>{{ Str::limit($blog->slug, 25) }}</td>
                         <td>{{ Str::limit($blog->description, 25) }}</td>
-                        <td><img width="50px" height="50px" src="{{ asset('document/blog/' . $blog->image) }}" /></td>
-                        <td><img width="50px" height="50px" src="{{ asset('document/blog/' . $blog->thumbnail_image) }}" />
+                        <td><img width="50px" height="50px" src="/document/blog/{{ $blog->image }}" /></td>
+                        <td><img width="50px" height="50px" src="/document/blog/{{ $blog->thumbnail_image }}" />
                         </td>
 
                         <td>{{ Str::limit($blog->tags, 12) }}</td>

@@ -22,7 +22,7 @@
                     <tr>
                         <td>{{ $portfolio->id }}</td>
                         <td>{{ $portfolio->title }}</td>
-                        <td>{{ $portfolio->description }}</td>
+                        <td width="450px">{{ $portfolio->description }}</td>
                         <td>{{ $portfolio->image_url }}</td>
                         <td>{{ $portfolio->status }}</td>
                         <td>
