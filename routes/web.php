@@ -2,15 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CareerController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\BlogsController;
+use App\Http\Controllers\JobApplyController;
 
 // public Routes
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
@@ -18,6 +20,9 @@ Route::get('/contact', function () {
     return view('contact');
 });
 Route::post('/contact', [ContactController::class, 'store']);
+
+Route::get('/career/job', [JobApplyController::class, 'index']);
+Route::post('/career/job', [JobApplyController::class, 'apply']);
 
 // protected route for if user already login
 Route::middleware('is_login')->group(function () {
@@ -39,6 +44,9 @@ Route::middleware(['guard'])->group(function () {
         Route::get('create-category', [CategoryController::class, 'create'])->name('create-category');
         Route::post('create-category', [CategoryController::class, 'store']);
         Route::get('view-category', [CategoryController::class, 'view_category'])->name('view-category');
+        Route::get('edit-category/{id}', [CategoryController::class, 'edit'])->name('edit-Category');
+        Route::post('edit-category/{id}', [CategoryController::class, 'update'])->name('update-category');
+        Route::get('delete-category/{id}', [CategoryController::class, 'destroy'])->name('delete-category');
         Route::get('add-blog', [BlogsController::class, 'index']);
         Route::post('add-blog', [BlogsController::class, 'store']);
         Route::get('view-blog', [BlogsController::class, 'viewBlog']);
@@ -56,17 +64,27 @@ Route::middleware(['guard'])->group(function () {
         Route::get('add-portfolio', [PortfolioController::class, 'add_protfolio'])->name('add-portfolio');
         Route::post('add-portfolio', [PortfolioController::class, 'store'])->name('add-portfolio');
         Route::get('view-portfolio', [PortfolioController::class, 'view_protfolio'])->name('view-portfolio');
-        Route::get('add-user', [UserController::class,'add_user'])->name('add_user');
-        Route::post('add-user', [UserController::class,'store_user'])->name('add-user');
-        Route::get('view-users', [UserController::class,'view_user'])->name('view-users');
-        Route::get('edit-users/{id}', [UserController::class,'edit_user'])->name('edit-users');
-        Route::put('update-user/{id}', [UserController::class,'update_user'])->name('update-user');
-        Route::get('delete-user/{id}', [UserController::class,'destroy'])->name('delete-user');
+        Route::get('add-user', [UserController::class, 'add_user'])->name('add_user');
+        Route::post('add-user', [UserController::class, 'store_user'])->name('add-user');
+        Route::get('view-users', [UserController::class, 'view_user'])->name('view-users');
+        Route::get('edit-users/{id}', [UserController::class, 'edit_user'])->name('edit-users');
+        Route::put('update-user/{id}', [UserController::class, 'update_user'])->name('update-user');
+        Route::get('delete-user/{id}', [UserController::class, 'destroy'])->name('delete-user');
         Route::get('edit-portfolio/{id}', [PortfolioController::class, 'edit_portfolio'])->name('edit-portfolio');
         Route::put('update-portfolio/{id}', [PortfolioController::class, 'update_portfolio'])->name('update-portfolio');
         Route::get('delete-portfolio/{id}', [PortfolioController::class, 'destroy'])->name('delete-portfolio');
-        Route::get('all-contacts', [ContactController::class, 'getdata']);
+        Route::get('all-contacts', [ContactController::class, 'getdata'])->name('all-contacts');
         Route::get('/contact/delete/{id}', [ContactController::class, 'destroy']);
+
+        // Route For Change Password
+        Route::get('change-password', [ProfileController::class, 'view_profile'])->name('change-password');
+        Route::post('update-password', [ProfileController::class, 'update_password'])->name('update-password');
     });
 });
+
+
+// Editors protected routes
+
+
+
 Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');

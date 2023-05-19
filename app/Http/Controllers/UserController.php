@@ -19,9 +19,10 @@ class UserController extends Controller
         $user = User::where(['email' => $req->email])->first();
         // $decrypt = Hash::check($user->password);
         if (!$user || !Hash::check($req->password, $user->password)) {
-            return 'username / password not matched';
+            session()->flash('message', 'please enter valid credential');
+            return redirect()->back();
         } else {
-            $req->session()->put(['id'=>$user->id,'name' => $user->name, 'role' => $user->role]);
+            $req->session()->put(['id' => $user->id, 'name' => $user->name, 'role' => $user->role, 'password' => $user->password]);
             return redirect('admin/dashboard');
         }
     }
@@ -38,23 +39,23 @@ class UserController extends Controller
 
     public function store_user(Request $request)
     {
-            // Validate the form data
+        // Validate the form data
         $validatedData = $request->validate([
-        'name' => 'required',
-        'email' => 'required|email|unique:users',
-        'phone_no' => 'required|unique:users',
-        'password' => 'required',
-        'role' => 'required|in:guest,user,editor,admin,super_admin',
-        'profile_image' => 'nullable|image',
-        'joining_date' => 'nullable|date',
-        'block_status' => 'boolean',
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'phone_no' => 'required|unique:users|min:10',
+            'password' => 'required',
+            'role' => 'required|in:guest,user,editor,admin,super_admin',
+            'profile_image' => 'nullable|image',
+            'joining_date' => 'nullable|date',
+            'block_status' => 'boolean',
         ]);
-            // Hash the password
+        // Hash the password
         $validatedData['password'] = Hash::make($validatedData['password']);
         // Process the uploaded profile image if provided
         if ($request->hasFile('profile_image')) {
-        $imagePath = $request->file('profile_image')->store('public/profile_images');
-        $validatedData['profile_image'] = $imagePath;
+            $imagePath = $request->file('profile_image')->store('public/profile_images');
+            $validatedData['profile_image'] = $imagePath;
         }
 
         // Create the user
@@ -67,8 +68,8 @@ class UserController extends Controller
 
     public function view_user()
     {
-        $users = User::all();
-        return view('admin_views.admin.view_users',compact('users'));
+        $users = User::paginate(10);
+        return view('admin_views.admin.view_users', compact('users'));
     }
 
 
@@ -88,8 +89,8 @@ class UserController extends Controller
         // Validate the form data
         $validatedData = $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users,email,'.$user->id,
-            'phone_no' => 'required|unique:users,phone_no,'.$user->id,
+            'email' => 'required|email|unique:users,email,' . $user->id,
+            'phone_no' => 'required|unique:users,phone_no,' . $user->id,
             'role' => 'required|in:guest,user,editor,admin,super_admin',
             'profile_image' => 'nullable|image',
             'joining_date' => 'nullable|date',

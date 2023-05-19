@@ -13,10 +13,19 @@ class BlogsController extends Controller
     public function index()
     {
         $categories = Category::all();
+        // $categories = Category::paginate(10);
         return view('admin_views.admin.blog', compact('categories'));
     }
     public function store(Request $request)
     {
+        $request->validate([
+            'category_id' => 'required',
+            'title' => 'required',
+            'slug' => 'required',
+            'description' => 'required|min:15',
+            'image' => 'mimes:png,jpg,jpeg',
+            'thumbnail_image' => 'mimes:png,jpg,jpeg',
+        ]);
         $blog = new Blog();
         $blog->category_id = (int)$request->category_id;
         $blog->title = $request->title;
@@ -48,8 +57,8 @@ class BlogsController extends Controller
     }
     public function viewBlog()
     {
-        $blogs = Blog::all();
-
+        //$blogs = Blog::all();
+        $blogs = Blog::paginate(10);
         return view('admin_views.admin.viewAddedBlogs', compact('blogs'));
     }
     public function edit($id)
@@ -61,6 +70,7 @@ class BlogsController extends Controller
     }
     public function editsubmit(Request $request, $id)
     {
+
         $blog = Blog::find($id);
         $blog->category_id = (int)$request->category_id;
         $blog->title = $request->title;
