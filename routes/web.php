@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BlogsController;
@@ -13,17 +12,14 @@ use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\JobApplyController;
-
 // public Routes
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 Route::get('/contact', function () {
     return view('contact');
 });
 Route::post('/contact', [ContactController::class, 'store']);
-
 Route::get('/career/job', [JobApplyController::class, 'index']);
 Route::post('/career/job', [JobApplyController::class, 'apply']);
-
 // protected route for if user already login
 Route::middleware('is_login')->group(function () {
     // Register Route
@@ -44,6 +40,9 @@ Route::middleware(['guard'])->group(function () {
         Route::get('create-category', [CategoryController::class, 'create'])->name('create-category');
         Route::post('create-category', [CategoryController::class, 'store']);
         Route::get('view-category', [CategoryController::class, 'view_category'])->name('view-category');
+        Route::get('edit-category/{id}', [CategoryController::class, 'edit'])->name('edit-Category');
+        Route::post('edit-category/{id}', [CategoryController::class, 'update'])->name('update-category');
+        Route::get('delete-category/{id}', [CategoryController::class, 'destroy'])->name('delete-category');
         Route::get('add-blog', [BlogsController::class, 'index']);
         Route::post('add-blog', [BlogsController::class, 'store']);
         Route::get('view-blog', [BlogsController::class, 'viewBlog']);
@@ -72,16 +71,10 @@ Route::middleware(['guard'])->group(function () {
         Route::get('delete-portfolio/{id}', [PortfolioController::class, 'destroy'])->name('delete-portfolio');
         Route::get('all-contacts', [ContactController::class, 'getdata'])->name('all-contacts');
         Route::get('/contact/delete/{id}', [ContactController::class, 'destroy']);
-
         // Route For Change Password
         Route::get('change-password', [ProfileController::class, 'view_profile'])->name('change-password');
         Route::post('update-password', [ProfileController::class, 'update_password'])->name('update-password');
     });
 });
-
-
 // Editors protected routes
-
-
-
 Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
