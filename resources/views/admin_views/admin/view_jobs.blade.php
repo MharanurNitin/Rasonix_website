@@ -26,8 +26,8 @@
                             <td>{{ $cate_item->id }}</td>
                             <td>{{ $cate_item->title }}</td>
                             <td>
-                                <img src="{{ asset('document/jobs/' . $cate_item->document) }}" width="50px" height="50px"
-                                    alt="">
+                                <img src="/document/jobs/{{ $cate_item->document }}" width="50px" height="50px"
+                                    alt="Image Not available">
                             </td>
                             {{-- <td>{{$item->stats=='1'?'Hidden':'Shown'}}</td> --}}
 
@@ -36,9 +36,9 @@
                                 {{ Illuminate\Support\Str::limit($cate_item->description, 15) }}
                             </td>
                             <td>
-                                <a class="btn btn-sm btn-primary" href="{{ url('admin/edit-jobs/' . $cate_item->id) }}"><i
+                                <a class="btn btn-sm btn-primary" href="/admin/edit-jobs/{{ $cate_item->id }}"><i
                                         class="fas fa-solid fa-pen-nib"></i></a>
-                                <a class="btn btn-sm btn-danger" href="{{ url('admin/delete-jobs/' . $cate_item->id) }}"><i
+                                <a class="btn btn-sm btn-danger" href="/admin/delete-jobs/{{ $cate_item->id }}"><i
                                         class="fa-regular fa-trash-can"></i></a>
                                 {{-- <a href="{{url('admin/delete-category/'.$item->id)}}"class="btn btn-danger">Delete</a> --}}
                             </td>

@@ -1,13 +1,12 @@
 @extends('admin_layouts.master')
-    <style>
-     input,select,textarea
-     {
+<style>
+    input,
+    select,
+    textarea {
         margin-bottom: 30px !important;
-     }
-
-    </style>
+    }
+</style>
 @section('content')
-
     <div class="container px-4">
         <h1 class="mt-4">Add Jobs</h1>
         <ol class="breadcrumb mb-4">
@@ -15,7 +14,7 @@
         </ol>
         <div class="row">
             <div class="">
-                <form method="POST" action="{{url('admin/add-jobs')}}" enctype="multipart/form-data">
+                <form method="POST" action="{{ url('admin/add-jobs') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="title">Title</label>
@@ -28,14 +27,14 @@
                     <div class="form-group">
                         <label for="category">Category</label>
                         <select class="form-control" id="category" name="categories_id" required>
-                            @foreach($categories as $category)
+                            @foreach ($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="document">Document</label>
-                        <input type="file" class="form-control-file" id="document" name="document" required>
+                        <input type="file" class="form-control-file" id="document" name="document">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
