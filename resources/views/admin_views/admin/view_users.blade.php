@@ -32,13 +32,6 @@
                             <td>
                                 <a href="{{ url('admin/edit-users', $user->id) }}" style="text-decoration: none"
                                     class='btn btn-primary'> <i class="fas fa-solid fa-pen-nib"></i> </a>
-
-
-                                {{-- <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display: inline-block">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this user?')">Delete</button>
-                                </form> --}}
                                 <a href="{{ url('admin/delete-user/' . $user->id) }}" class="btn btn-danger"><i
                                         class="fa-regular fa-trash-can"></i></a>
                             </td>

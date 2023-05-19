@@ -17,7 +17,7 @@ class UserController extends Controller
     public function login(Request $req)
     {
         $user = User::where(['email' => $req->email])->first();
-        // $decrypt = Hash::check($user->password);
+       
         if (!$user || !Hash::check($req->password, $user->password)) {
             session()->flash('message', 'please enter valid credential');
             return redirect()->back();
