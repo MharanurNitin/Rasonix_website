@@ -13,7 +13,7 @@
                 {{ session('success') }}
             </div>
         @endif
-            <form action="{{ url('admin/update-user', $user->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="/admin/update-user/{{$user->id}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 

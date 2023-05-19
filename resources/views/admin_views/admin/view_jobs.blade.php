@@ -37,6 +37,7 @@
                                         class="fas fa-solid fa-pen-nib"></i></a>
                                 <a class="btn btn-sm btn-danger" href="{{ url('admin/delete-jobs/' . $cate_item->id) }}"><i
                                         class="fa-regular fa-trash-can"></i></a>
+
                             </td>
                         </tr>
                     @endforeach

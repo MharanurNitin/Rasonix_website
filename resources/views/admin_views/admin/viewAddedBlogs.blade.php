@@ -53,8 +53,8 @@
                             @endif
                         </td>
 
-                        <td><a class="btn btn-primary" href="{{ url('admin/blog/edit/' . $blog->id) }}"><i class="fas fa-solid fa-pen-nib"></i> </a></td>
-                        <td><a class="btn btn-danger" href="{{ url('admin/blog/delete/' . $blog->id) }}"><i class="fa-regular fa-trash-can"></i></a></td>
+                        <td><a class="btn btn-primary" href="/admin/blog/edit/{{$blog->id}}"><i class="fas fa-solid fa-pen-nib"></i> </a></td>
+                        <td><a class="btn btn-danger" href="/admin/blog/delete/{{$blog->id}}"><i class="fa-regular fa-trash-can"></i></a></td>
 
                     </tr>
                 @endforeach

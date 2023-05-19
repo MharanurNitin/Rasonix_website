@@ -30,9 +30,9 @@
                             <td>{{ $user->phone_no }}</td>
                             <td>{{ $user->role }}</td>
                             <td>
-                                <a href="{{ url('admin/edit-users', $user->id) }}" style="text-decoration: none"
+                                <a href="/admin/edit-users/{{$user->id}}" style="text-decoration: none"
                                     class='btn btn-primary'> <i class="fas fa-solid fa-pen-nib"></i> </a>
-                                <a href="{{ url('admin/delete-user/' . $user->id) }}" class="btn btn-danger"><i
+                                <a href="/admin/delete-user/{{$user->id}}" class="btn btn-danger"><i
                                         class="fa-regular fa-trash-can"></i></a>
                             </td>
                         </tr>
