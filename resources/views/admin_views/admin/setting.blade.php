@@ -13,7 +13,7 @@
                    {{session('message')}}
                 </div>
                 @endif
-                <form action={{route('update-password')}} method="POST">
+                <form action="/admin/update-password" method="POST">
                     @csrf
                     <div class="form-group mb-3">
                       <label for="exampleInputEmail1">Old Password</label>

@@ -26,9 +26,9 @@
                         <td>{{ $portfolio->image_url }}</td>
                         <td>{{ $portfolio->status }}</td>
                         <td>
-                            <a href="/admin/edit-portfolio/{{ $portfolio->id }}" class="btn btn-primary"><i
+                            <a href="/admin/edit-portfolio/{{$portfolio->id}}" class="btn btn-primary"><i
                                     class="fas fa-solid fa-pen-nib"></i></a>
-                            <a href="/admin/delete-portfolio/{{ $portfolio->id }}" class="btn btn-danger"><i
+                            <a href="/admin/delete-portfolio/{{$portfolio->id }}" class="btn btn-danger"><i
                                     class="fa-regular fa-trash-can"></i></a>
                         </td>
                     </tr>

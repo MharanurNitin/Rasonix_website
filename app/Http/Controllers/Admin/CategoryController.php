@@ -1,15 +1,11 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
-
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Str;
-
-
 class CategoryController extends Controller
 {
     public function store(Request $request)

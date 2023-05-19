@@ -14,7 +14,7 @@
         </ol>
         <div class="row">
             <div class="">
-                <form method="POST" action="{{ url('admin/add-jobs') }}" enctype="multipart/form-data">
+                <form method="POST" action="/admin/add-jobs" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="title">Title</label>

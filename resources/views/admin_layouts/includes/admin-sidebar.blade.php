@@ -3,7 +3,7 @@
         <div class="sb-sidenav-menu">
             <div class="nav">
                 <div class="sb-sidenav-menu-heading">Core</div>
-                <a class="nav-link {{Request::is('admin/dashboard') ? 'active' : ''}}" href="{{route('dashboard')}}">
+                <a class="nav-link {{Request::is('admin/dashboard') ? 'active' : ''}}" href="/admin/dashboard">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Dashboard
                 </a>
@@ -17,8 +17,8 @@
                 </a>
                 <div class="collapse {{Request::is('admin/view-category')|| Request::is('admin/create-category')||Request::is('admin/edit-category/*') ? 'show' : ''}}" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link {{Request::is('admin/create-category') ? 'active' : ''}}" href="{{ url('admin/create-category') }}">Add Category</a>
-                        <a class="nav-link {{Request::is('admin/view-category') ? 'active' : ''}}" href="{{ url('admin/view-category') }}">View Category</a>
+                        <a class="nav-link {{Request::is('admin/create-category') ? 'active' : ''}}" href="/admin/create-category">Add Category</a>
+                        <a class="nav-link {{Request::is('admin/view-category') ? 'active' : ''}}" href="/admin/view-category">View Category</a>
                     </nav>
                 </div>
 
@@ -30,8 +30,8 @@
                 </a>
                 <div class="collapse" id="collapseJobs" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{ url('admin/add-jobs') }}">Add Jobs</a>
-                        <a class="nav-link" href="{{ url('admin/view-jobs') }}">View Jobs</a>
+                        <a class="nav-link" href="/admin/add-jobs">Add Jobs</a>
+                        <a class="nav-link" href="/admin/view-jobs">View Jobs</a>
                     </nav>
                 </div>
 
@@ -43,8 +43,8 @@
                 </a>
                 <div class="collapse" id="collapseBlog" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{ url('admin/add-blog') }}">Add Blog</a>
-                        <a class="nav-link" href="{{ url('admin/view-blog') }}">View Blog</a>
+                        <a class="nav-link" href="/admin/add-blog">Add Blog</a>
+                        <a class="nav-link" href="/admin/view-blog">View Blog</a>
                     </nav>
                 </div>
 
@@ -56,8 +56,8 @@
                 </a>
                 <div class="collapse" id="collapsePort" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{ url('admin/add-portfolio') }}">Add Portfolio</a>
-                        <a class="nav-link" href="{{ url('admin/view-portfolio') }}">View Portfolio</a>
+                        <a class="nav-link" href="/admin/add-portfolio">Add Portfolio</a>
+                        <a class="nav-link" href="/admin/view-portfolio">View Portfolio</a>
                     </nav>
                 </div>
 
@@ -68,12 +68,12 @@
                 </a>
                 <div class="collapse" id="collapseUser" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{ url('admin/add-user') }}">Add User</a>
-                        <a class="nav-link" href="{{ url('admin/view-users') }}">Edit User Setting</a>
+                        <a class="nav-link" href="/admin/add-user">Add User</a>
+                        <a class="nav-link" href="/admin/view-users">Edit User Setting</a>
                     </nav>
                 </div>
                 <div class="sb-sidenav-menu-heading">Addons</div>
-                <a class="nav-link" href="{{route('all-contacts')}}">
+                <a class="nav-link" href="/admin/all-contacts">
                     <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                      All Contact
                 </a>

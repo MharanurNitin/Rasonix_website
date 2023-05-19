@@ -2,7 +2,7 @@
 @section('content')
 <div class="blog-form-container p-4">
     <h1 class="text-4xl font-semibold text-center">Add Blog</h1>
-    <form action='{{url('admin/add-blog')}}' method="post" class="" enctype="multipart/form-data">
+    <form action="/admin/add-blog" method="post" class="" enctype="multipart/form-data">
     @csrf
      <label for="title">Category_id</label>
      {{-- <input type="text" name="category_id" class="form-control"/> --}}

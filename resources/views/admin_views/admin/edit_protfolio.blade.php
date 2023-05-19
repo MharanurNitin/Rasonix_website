@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div> --}}
-        <form action="{{ url('admin/update-portfolio/'.$portfolio->id) }}" method="POST">
+        <form action="/admin/update-portfolio/{{$portfolio->id}}" method="POST">
             @csrf
             @method('PUT')
 

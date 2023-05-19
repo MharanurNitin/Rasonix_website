@@ -1,7 +1,7 @@
 @extends('admin_layouts.master')
 @section('content')
 <div class="container">
-   
+
   <h2>All Contacts</h2>
    @if(session('success'))
     <div class="alert alert-success">{{session('success')}}</div>
@@ -31,8 +31,8 @@
         <td>{{$contact->message}}</td>
         <td>{{$contact->replied}}</td>
         <td>{{$contact->reply}}</td>
-        <td><a href={{url('admin/contact/reply/'.$contact->id)}} class="btn btn-primary text-white p-2">Reply</a></td>
-        <td><a href="{{url('admin/contact/delete/'.$contact->id)}}" class="btn btn-danger text-white p-2">Delete</a></td>
+        <td><a href="/admin/contact/reply/{{$contact->id}}" class="btn btn-primary text-white p-2">Reply</a></td>
+        <td><a href="/admin/contact/delete/{{$contact->id}}" class="btn btn-danger text-white p-2">Delete</a></td>
       </tr>
       @endforeach
     </tbody>

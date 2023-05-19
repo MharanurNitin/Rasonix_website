@@ -21,7 +21,7 @@
                 <tbody>
 
                     @foreach ($career as $cate_item)
-                        <tr onclick="window.location='http://localhost:8000/admin/view-jobs/{{ $cate_item->id }}';">
+                        <tr>
 
                             <td>{{ $cate_item->id }}</td>
                             <td>{{ $cate_item->title }}</td>
@@ -29,10 +29,7 @@
                                 <img src="/document/jobs/{{ $cate_item->document }}" width="50px" height="50px"
                                     alt="Image Not available">
                             </td>
-                            {{-- <td>{{$item->stats=='1'?'Hidden':'Shown'}}</td> --}}
-
                             <td>
-                                {{-- <a href="{{url('admin/edit-category/'.$item->id)}}"class="btn btn-success">Edit</a> --}}
                                 {{ Illuminate\Support\Str::limit($cate_item->description, 15) }}
                             </td>
                             <td>
@@ -40,7 +37,7 @@
                                         class="fas fa-solid fa-pen-nib"></i></a>
                                 <a class="btn btn-sm btn-danger" href="/admin/delete-jobs/{{ $cate_item->id }}"><i
                                         class="fa-regular fa-trash-can"></i></a>
-                                {{-- <a href="{{url('admin/delete-category/'.$item->id)}}"class="btn btn-danger">Delete</a> --}}
+
                             </td>
                         </tr>
                     @endforeach

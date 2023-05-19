@@ -43,24 +43,6 @@ class PortfolioController extends Controller
 
     public function update_portfolio(Request $request, $id)
     {
-        // $portfolio = Portfolio::find($id);
-        //  // Validate the form data
-        //  $validatedData = $request->validate([
-        //     'title' => 'required|string',
-        //     'description' => 'required|string',
-        //     'image_url' => 'nullable|string',
-        //     'status' => 'in:visible,hidden',
-        // ]);
-
-        // // Update the portfolio record
-        // $portfolio->update_portfolio($validatedData);
-
-        // // Optionally, you can perform additional actions such as file upload, notifications, etc.
-
-        // // Redirect or return a response
-        // return redirect()->route('view-portfolio')->with('success', 'Portfolio updated successfully!');
-
-
         $portfolio = Portfolio::find($id);
 
         // Validate the form data
@@ -74,7 +56,6 @@ class PortfolioController extends Controller
         // Update the portfolio record
         $portfolio->fill($validatedData)->save();
 
-        // Optionally, you can perform additional actions such as file upload, notifications, etc.
 
         // Redirect or return a response
         return redirect()->route('view-portfolio')->with('success', 'Portfolio updated successfully!');

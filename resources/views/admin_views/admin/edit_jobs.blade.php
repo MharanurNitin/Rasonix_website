@@ -15,7 +15,7 @@
                 @endforeach
             </div>
             @endif
-            <form action="{{url('admin/update-jobs/'.$career->id)}}" method="POST" enctype="multipart/form-data">
+            <form action="/admin/update-jobs/{{$career->id}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="mb-3">

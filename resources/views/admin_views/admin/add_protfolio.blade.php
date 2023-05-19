@@ -15,7 +15,7 @@
                 @endforeach
             </div>
             @endif
-            <form action="{{ route('add-portfolio') }}" method="POST">
+            <form action="/admin/add-portfolio" method="POST">
                 @csrf
 
                 <div class="mb-3">

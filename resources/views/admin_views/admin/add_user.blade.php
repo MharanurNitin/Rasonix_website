@@ -14,7 +14,7 @@
             </div>
         @endif
 
-            <form method="POST" action="{{ url('admin/add-user') }}">
+            <form method="POST" action="/admin/add-user">
                 @csrf
 
                 <div class="mb-3">
