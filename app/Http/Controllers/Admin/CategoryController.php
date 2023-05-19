@@ -45,7 +45,7 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         $category->delete();
-        session()->flas('message', 'category deleted successfully');
+        session()->flash('message', 'category deleted successfully');
         return redirect()->back();
     }
 }
