@@ -44,6 +44,9 @@ Route::middleware(['guard'])->group(function () {
         Route::get('create-category', [CategoryController::class, 'create'])->name('create-category');
         Route::post('create-category', [CategoryController::class, 'store']);
         Route::get('view-category', [CategoryController::class, 'view_category'])->name('view-category');
+        Route::get('edit-category/{id}', [CategoryController::class, 'edit'])->name('edit-Category');
+        Route::post('edit-category/{id}', [CategoryController::class, 'update'])->name('update-category');
+        Route::get('delete-category/{id}', [CategoryController::class, 'destroy'])->name('delete-category');
         Route::get('add-blog', [BlogsController::class, 'index']);
         Route::post('add-blog', [BlogsController::class, 'store']);
         Route::get('view-blog', [BlogsController::class, 'viewBlog']);

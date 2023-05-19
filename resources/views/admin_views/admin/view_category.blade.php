@@ -3,6 +3,11 @@
 @section('content')
     <div class="container-fluid px-4">
         <h1 class="mt-4">View Category</h1>
+        @if (session('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+        @endif
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item active">View Category</li>
         </ol>
@@ -20,8 +25,11 @@
                         <tr>
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->name }}</td>
-                            <td><a href="" class="btn btn-primary"><i class="fas fa-solid fa-pen-nib"></i></a>
-                            <a href="" class="btn btn-danger"><i class="fa-regular fa-trash-can"></i></a></td>
+                            <td><a href="{{ url('admin/edit-category/' . $item->id) }}" class="btn btn-primary"><i
+                                        class="fas fa-solid fa-pen-nib"></i></a>
+                                <a href="{{ url('admin/delete-category/' . $item->id) }}" class="btn btn-danger"><i
+                                        class="fa-regular fa-trash-can"></i></a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
